@@ -212,5 +212,21 @@ namespace W5HIXV_HFT_2023241.Test
             }.AsQueryable());
             driverLogic = new DriverLogic(driverMock.Object);
         }
+
+        [Test]
+        public void CreateMethodTest()
+        {
+            Car sil = new Car { Id = 10, Brand = "Ifa", Total_Weith = 7500, Plate = "AAAB711" };
+            carLogic.Create(new Car { Id = 10, Brand = "Ifa", Total_Weith = 7500, Plate = "AAAB711"});
+            var ifa = carLogic.ReadAll().Where(t => t.Id == 10);
+            foreach (var item in ifa.GetType().GetProperties())
+            {
+                foreach (var t in sil.GetType().GetProperties())
+                {
+                    Assert.That(item == t);
+                }
+            }
+        }
+    
     }
 }

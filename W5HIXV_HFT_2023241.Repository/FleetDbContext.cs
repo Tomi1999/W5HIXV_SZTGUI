@@ -123,7 +123,66 @@ namespace W5HIXV_HFT_2023241.Repository
                     Total_Weith = 7500
                 }
             };
+            var drivers = new List<Driver> 
+            {
+                new Driver()
+                {
+                    Id = 1,
+                    Name = "John Doe",
+                    Distance = 564
+                },
+                 new Driver()
+                {
+                    Id = 2,
+                    Name = "Johanna Forsner",
+                    Distance = 54
+                },
+                 new Driver()
+                {
+                    Id = 3,
+                    Name = "Bob Dilan",
+                    Distance = 5645
+                },
+                 new Driver()
+                {
+                    Id = 4,
+                    Name = "Jimi Hendrix",
+                    Distance = 236
+                },
+                 new Driver()
+                {
+                    Id = 5,
+                    Name = "Kurt Cobain",
+                    Distance = 1456
+                },
+                 new Driver()
+                {
+                    Id = 6,
+                    Name = "Machine Gun Kelly",
+                    Distance = 1564
+                },
+                 new Driver()
+                {
+                    Id = 7,
+                    Name = "Eminem",
+                    Distance = 2564
+                },
+                 new Driver()
+                {
+                    Id = 8,
+                    Name = "Mike Tyson",
+                    Distance = 9564
+                },
+                  new Driver()
+                {
+                    Id = 9,
+                    Name = "Don Corleone",
+                    Distance = 4564
+                },
                 
+            };
+
+
         }
     }
 }

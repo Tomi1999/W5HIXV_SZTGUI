@@ -15,7 +15,8 @@ namespace W5HIXV_HFT_2023241.Repository
         }
         public void Create(T item)
         {
-            throw new NotImplementedException();
+            ctx.Add(item);
+            ctx.SaveChanges();
         }
 
         public void Delete(int id)

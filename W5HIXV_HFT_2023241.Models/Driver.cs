@@ -18,6 +18,9 @@ namespace W5HIXV_HFT_2023241.Models
 
         public int Distance { get; set; }
 
+        [ForeignKey(nameof(Site))]
+        public int SiteId { get; set; }
+
         [NotMapped]
         public virtual Site Site { get; set; }  
     }

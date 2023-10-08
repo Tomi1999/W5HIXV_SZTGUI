@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace W5HIXV_HFT_2023241.Models
     [Table("Cars")]
     public class Cars
     {
+        [Key]
         public int Id { get; set; }
 
         public string Plate {  get; set; }  
@@ -19,6 +21,9 @@ namespace W5HIXV_HFT_2023241.Models
         public string Brand { get; set; } 
 
         public int Total_Weith { get; set; }
+
+        [ForeignKey(nameof(Driver))]
+        public int DriverId { get; set; }
 
         [NotMapped]
         public virtual Driver Driver { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace W5HIXV_HFT_2023241.Repository
 {
-    internal class Repository<T> : IRepository<T> where T : class
+    abstract class Repository<T> : IRepository<T> where T : class
     {
         FleetDbContext ctx;
         protected Repository(FleetDbContext ctx)
@@ -25,19 +25,13 @@ namespace W5HIXV_HFT_2023241.Repository
             ctx.SaveChanges();
         }
 
-        public T Read(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract T Read(int id);
 
         public IQueryable<T> ReadAll()
         {
             return ctx.Set<T>();
         }
 
-        public void Update(T item)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void Update(T item);
     }
 }

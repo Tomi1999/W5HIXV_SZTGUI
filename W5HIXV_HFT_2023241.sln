@@ -9,9 +9,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{79
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{6AF07FB4-7FD7-44C0-9354-1AF00C6797EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W5HIXV_HFT_2023241.Models", "W5HIXV_HFT_2023241.Models\W5HIXV_HFT_2023241.Models.csproj", "{08FE8EA9-A767-4585-88A5-83ED6742E389}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08FE8EA9-A767-4585-88A5-83ED6742E389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08FE8EA9-A767-4585-88A5-83ED6742E389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08FE8EA9-A767-4585-88A5-83ED6742E389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08FE8EA9-A767-4585-88A5-83ED6742E389}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{08FE8EA9-A767-4585-88A5-83ED6742E389} = {6AF07FB4-7FD7-44C0-9354-1AF00C6797EC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {20FF38D9-ABA7-4725-8BDB-1AE8DC0017EE}

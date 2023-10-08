@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,5 +14,8 @@ namespace W5HIXV_HFT_2023241.Models
         public string Name { get; set; }
 
         public int Distance { get; set; }
+
+        [NotMapped]
+        public virtual Site Site { get; set; }  
     }
 }

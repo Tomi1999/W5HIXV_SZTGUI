@@ -227,6 +227,15 @@ namespace W5HIXV_HFT_2023241.Test
                 }
             }
         }
+        [Test]
+        public void UpdateMethodTest() 
+        {
+            var tes = new Driver() { Id = 9, Distance = 8521 };
+            driverLogic.Update(tes);
+            var test = driverLogic.Read(9).Distance;
+            Assert.That(tes.Distance == test);
+
+        }
     
     }
 }

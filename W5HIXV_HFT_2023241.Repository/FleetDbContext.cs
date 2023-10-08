@@ -24,6 +24,9 @@ namespace W5HIXV_HFT_2023241.Repository
             builder.UseLazyLoadingProxies()
                 .UseInMemoryDatabase("Fleet");
         }
-        override 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

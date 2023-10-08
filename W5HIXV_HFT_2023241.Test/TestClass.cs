@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using W5HIXV_HFT_2023241.Logic;
 using W5HIXV_HFT_2023241.Models;
 using W5HIXV_HFT_2023241.Repository;
@@ -25,8 +26,88 @@ namespace W5HIXV_HFT_2023241.Test
             carMock = new Mock<IRepository<Car>>();
             carMock.Setup(m => m.ReadAll()).Returns(new List<Car>()
             {
-                 
-                }.AsQueryable());
+                new Car()
+        {
+            Id = 1,
+            Plate = "ABC123",
+            Brand = "Ivecco",
+            Total_Weith = 3500,
+            DriverId = 1,
+            SiteId = 1
+        },
+        new Car()
+        {
+            Id = 2,
+            Plate = "ABB123",
+            Brand = "Ivecco",
+            Total_Weith = 7500,
+            DriverId = 2,
+            SiteId = 1
+        },
+        new Car()
+        {
+            Id = 3,
+            Plate = "BBB123",
+            Brand = "Ivecco",
+            Total_Weith = 7500,
+            DriverId = 3,
+            SiteId = 1
+        },
+        new Car()
+        {
+            Id = 4,
+            Plate = "BBC123",
+            Brand = "MAN",
+            Total_Weith = 7500,
+            DriverId = 4,
+            SiteId = 2
+        },
+        new Car()
+        {
+            Id = 5,
+            Plate = "BBD123",
+            Brand = "MAN",
+            Total_Weith = 7500,
+            DriverId = 5,
+            SiteId = 2
+        },
+        new Car()
+        {
+            Id = 6,
+            Plate = "BBE123",
+            Brand = "Renault",
+            Total_Weith = 7500,
+            DriverId = 6,
+            SiteId = 2
+        },
+        new Car()
+        {
+            Id = 7,
+            Plate = "BBF123",
+            Brand = "Scania",
+            Total_Weith = 7500,
+            DriverId = 7,
+            SiteId = 3
+        },
+        new Car()
+        {
+            Id = 8,
+            Plate = "BBF153",
+            Brand = "Scania",
+            Total_Weith = 7500,
+            DriverId = 8,
+            SiteId = 3
+        },
+        new Car()
+        {
+            Id = 9,
+            Plate = "BBF166",
+            Brand = "Renault",
+            Total_Weith = 7500,
+            DriverId = 9,
+            SiteId = 3
+        }
+            }.AsQueryable());
             carLogic = new CarLogic(carMock.Object);
         }
     }

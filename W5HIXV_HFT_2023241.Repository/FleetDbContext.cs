@@ -10,6 +10,20 @@ namespace W5HIXV_HFT_2023241.Repository
 {
     public class FleetDbContext : DbContext
     {
+        public DbSet<Cars> Cars { get; set; }
+        public DbSet<Driver> Drivers { get; set; }
+        public DbSet<Site> Sites { get; set; }
 
+        public FleetDbContext()
+        {
+            this.Database.EnsureCreated();
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder builder)
+        {
+            builder.UseLazyLoadingProxies()
+                .UseInMemoryDatabase("Fleet");
+        }
+        override 
     }
 }

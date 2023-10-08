@@ -15,12 +15,17 @@ namespace W5HIXV_HFT_2023241.Repository
 
         public override Driver Read(int id)
         {
-            throw new NotImplementedException();
+            return ctx.Drivers.FirstOrDefault(x => x.Id == id);
         }
 
         public override void Update(Driver item)
         {
-            throw new NotImplementedException();
+            var old = this.Read(item.Id);
+            foreach (var prop in old.GetType().GetProperties())
+            {
+                prop.SetValue(item, prop.GetValue(item));
+            }
+            ctx.SaveChanges();
         }
     }
 }

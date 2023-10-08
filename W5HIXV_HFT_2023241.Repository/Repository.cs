@@ -31,7 +31,7 @@ namespace W5HIXV_HFT_2023241.Repository
 
         public IQueryable<T> ReadAll()
         {
-            throw new NotImplementedException();
+            return ctx.Set<T>();
         }
 
         public void Update(T item)

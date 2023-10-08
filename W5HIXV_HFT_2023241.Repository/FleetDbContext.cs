@@ -33,6 +33,30 @@ namespace W5HIXV_HFT_2023241.Repository
             modelBuilder.Entity<Car>()
                 .HasOne(t => t.Site)
                 .WithMany(t => t.Cars);
+            var sites = new List<Site>
+            {
+                new Site()
+                {
+                    Id = 1,
+                    Name = "Big",
+                    Address = "Budapest, Europa u. 6, 1239",
+
+                },
+                 new Site()
+                {
+                    Id = 2,
+                    Name = "Medium",
+                    Address = "Budapest, Nagykorösi út 351, 1239",
+
+                },
+                 new Site()
+                {
+                    Id = 2,
+                    Name = "Smal",
+                    Address = "Budapest, Könyves Kálmán krt. 13, 1097",
+
+                }
+            };
                 
         }
     }

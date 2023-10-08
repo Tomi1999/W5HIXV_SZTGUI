@@ -51,10 +51,76 @@ namespace W5HIXV_HFT_2023241.Repository
                 },
                  new Site()
                 {
-                    Id = 2,
+                    Id = 3,
                     Name = "Smal",
                     Address = "Budapest, Könyves Kálmán krt. 13, 1097",
 
+                }
+            };
+            var cars = new List<Car> 
+            {
+                new Car()
+                {
+                    Id = 1,
+                    Plate = "ABC123",
+                    Brand = "Ivecco",
+                    Total_Weith = 3500
+                },
+                new Car()
+                {
+                    Id = 2,
+                    Plate = "ABB123",
+                    Brand = "Ivecco",
+                    Total_Weith = 7500
+                },
+                new Car()
+                {
+                    Id = 3,
+                    Plate = "BBB123",
+                    Brand = "Ivecco",
+                    Total_Weith = 7500
+                },
+                new Car()
+                {
+                    Id = 4,
+                    Plate = "BBC123",
+                    Brand = "MAN",
+                    Total_Weith = 7500
+                },
+                new Car()
+                {
+                    Id = 5,
+                    Plate = "BBD123",
+                    Brand = "MAN",
+                    Total_Weith = 7500
+                },
+                new Car()
+                {
+                    Id = 6,
+                    Plate = "BBE123",
+                    Brand = "Renault",
+                    Total_Weith = 7500
+                },
+                new Car()
+                {
+                    Id = 7,
+                    Plate = "BBF123",
+                    Brand = "Scania",
+                    Total_Weith = 7500
+                },
+                new Car()
+                {
+                    Id = 8,
+                    Plate = "BBF153",
+                    Brand = "Scania",
+                    Total_Weith = 7500
+                },
+                new Car()
+                {
+                    Id = 9,
+                    Plate = "BBF166",
+                    Brand = "Renault",
+                    Total_Weith = 7500
                 }
             };
                 

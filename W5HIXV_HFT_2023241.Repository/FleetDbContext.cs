@@ -36,6 +36,7 @@ namespace W5HIXV_HFT_2023241.Repository
             modelBuilder.Entity<Site>()
                 .HasMany(t => t.Drivers)
                 .WithOne(t=>t.Site);
+
             var sites = new List<Site>
             {
                 new Site()

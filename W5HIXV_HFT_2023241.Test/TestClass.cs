@@ -138,7 +138,7 @@ namespace W5HIXV_HFT_2023241.Test
 
                }
             }.AsQueryable());
-            carLogic = new CarLogic(carMock.Object);
+            siteLogic = new SiteLogic(siteMock.Object);
         }
         [SetUp]
         public void InitDriver()
@@ -146,9 +146,71 @@ namespace W5HIXV_HFT_2023241.Test
             driverMock = new Mock<IRepository<Driver>>();
             driverMock.Setup(m => m.ReadAll()).Returns(new List<Driver>()
             {
-               
+               new Driver()
+        {
+            Id = 1,
+            Name = "John Doe",
+            Distance = 564,
+            SiteId = 1
+        },
+         new Driver()
+        {
+            Id = 2,
+            Name = "Johanna Forsner",
+            Distance = 54,
+            SiteId = 1
+        },
+         new Driver()
+        {
+            Id = 3,
+            Name = "Bob Dilan",
+            Distance = 5645,
+            SiteId = 1
+        },
+         new Driver()
+        {
+            Id = 4,
+            Name = "Jimi Hendrix",
+            Distance = 236,
+            SiteId = 2
+        },
+         new Driver()
+        {
+            Id = 5,
+            Name = "Kurt Cobain",
+            Distance = 1456,
+            SiteId = 2
+        },
+         new Driver()
+        {
+            Id = 6,
+            Name = "Machine Gun Kelly",
+            Distance = 1564,
+            SiteId = 2
+        },
+         new Driver()
+        {
+            Id = 7,
+            Name = "Eminem",
+            Distance = 2564,
+            SiteId = 3
+        },
+         new Driver()
+        {
+            Id = 8,
+            Name = "Mike Tyson",
+            Distance = 9564,
+            SiteId = 3
+        },
+          new Driver()
+        {
+            Id = 9,
+            Name = "Don Corleone",
+            Distance = 4564,
+            SiteId = 3
+        }
             }.AsQueryable());
-            carLogic = new CarLogic(carMock.Object);
+            driverLogic = new DriverLogic(driverMock.Object);
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace W5HIXV_HFT_2023241.Models
 {
+    [Table("Cars")]
     public class Cars
     {
         public int Id { get; set; }

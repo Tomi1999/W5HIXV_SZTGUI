@@ -8,7 +8,7 @@ using W5HIXV_HFT_2023241.Repository;
 
 namespace W5HIXV_HFT_2023241.Logic
 {
-    public class CarLogic
+    public class CarLogic : ICarLogic
     {
         IRepository<Car> repo;
         public CarLogic(IRepository<Car> repo)

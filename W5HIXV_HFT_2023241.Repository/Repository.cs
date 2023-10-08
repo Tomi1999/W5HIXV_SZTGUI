@@ -8,7 +8,7 @@ namespace W5HIXV_HFT_2023241.Repository
 {
     public abstract class Repository<T> : IRepository<T> where T : class
     {
-        FleetDbContext ctx;
+        protected FleetDbContext ctx;
         protected Repository(FleetDbContext ctx)
         {
             this.ctx = ctx;

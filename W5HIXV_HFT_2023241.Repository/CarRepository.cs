@@ -15,12 +15,17 @@ namespace W5HIXV_HFT_2023241.Repository
 
         public override Car Read(int id)
         {
-            throw new NotImplementedException();
+            return ctx.Cars.FirstOrDefault(t => t.Id == id);
         }
 
         public override void Update(Car item)
         {
-            throw new NotImplementedException();
+            var old = Read(item.Id);
+            foreach (var prop in old.GetType().GetProperties())
+            {
+                prop.SetValue(old, prop.GetValue(item));
+            }
+            ctx.SaveChanges();
         }
     }
 }

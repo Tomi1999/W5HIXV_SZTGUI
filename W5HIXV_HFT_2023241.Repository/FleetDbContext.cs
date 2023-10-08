@@ -64,63 +64,72 @@ namespace W5HIXV_HFT_2023241.Repository
                     Id = 1,
                     Plate = "ABC123",
                     Brand = "Ivecco",
-                    Total_Weith = 3500
+                    Total_Weith = 3500,
+                    DriverId = 1
                 },
                 new Car()
                 {
                     Id = 2,
                     Plate = "ABB123",
                     Brand = "Ivecco",
-                    Total_Weith = 7500
+                    Total_Weith = 7500,
+                    DriverId = 2
                 },
                 new Car()
                 {
                     Id = 3,
                     Plate = "BBB123",
                     Brand = "Ivecco",
-                    Total_Weith = 7500
+                    Total_Weith = 7500,
+                    DriverId = 3
                 },
                 new Car()
                 {
                     Id = 4,
                     Plate = "BBC123",
                     Brand = "MAN",
-                    Total_Weith = 7500
+                    Total_Weith = 7500,
+                    DriverId = 4
                 },
                 new Car()
                 {
                     Id = 5,
                     Plate = "BBD123",
                     Brand = "MAN",
-                    Total_Weith = 7500
+                    Total_Weith = 7500,
+                    DriverId = 5
                 },
                 new Car()
                 {
                     Id = 6,
                     Plate = "BBE123",
                     Brand = "Renault",
-                    Total_Weith = 7500
+                    Total_Weith = 7500,
+                    DriverId = 6
                 },
                 new Car()
                 {
                     Id = 7,
                     Plate = "BBF123",
                     Brand = "Scania",
-                    Total_Weith = 7500
+                    Total_Weith = 7500,
+                    DriverId = 7
                 },
                 new Car()
                 {
                     Id = 8,
                     Plate = "BBF153",
                     Brand = "Scania",
-                    Total_Weith = 7500
+                    Total_Weith = 7500,
+                    DriverId = 8
                 },
                 new Car()
                 {
                     Id = 9,
                     Plate = "BBF166",
                     Brand = "Renault",
-                    Total_Weith = 7500
+                    Total_Weith = 7500,
+                    DriverId = 9
                 }
             };
             var drivers = new List<Driver> 
@@ -129,60 +138,71 @@ namespace W5HIXV_HFT_2023241.Repository
                 {
                     Id = 1,
                     Name = "John Doe",
-                    Distance = 564
+                    Distance = 564,
+                    SiteId = 1
                 },
                  new Driver()
                 {
                     Id = 2,
                     Name = "Johanna Forsner",
-                    Distance = 54
+                    Distance = 54,
+                    SiteId = 1
                 },
                  new Driver()
                 {
                     Id = 3,
                     Name = "Bob Dilan",
-                    Distance = 5645
+                    Distance = 5645,
+                    SiteId = 1
                 },
                  new Driver()
                 {
                     Id = 4,
                     Name = "Jimi Hendrix",
-                    Distance = 236
+                    Distance = 236,
+                    SiteId = 2
                 },
                  new Driver()
                 {
                     Id = 5,
                     Name = "Kurt Cobain",
-                    Distance = 1456
+                    Distance = 1456,
+                    SiteId = 2
                 },
                  new Driver()
                 {
                     Id = 6,
                     Name = "Machine Gun Kelly",
-                    Distance = 1564
+                    Distance = 1564,
+                    SiteId = 2
                 },
                  new Driver()
                 {
                     Id = 7,
                     Name = "Eminem",
-                    Distance = 2564
+                    Distance = 2564,
+                    SiteId = 3
                 },
                  new Driver()
                 {
                     Id = 8,
                     Name = "Mike Tyson",
-                    Distance = 9564
+                    Distance = 9564,
+                    SiteId = 3
                 },
                   new Driver()
                 {
                     Id = 9,
                     Name = "Don Corleone",
-                    Distance = 4564
+                    Distance = 4564,
+                    SiteId = 3
                 },
                 
             };
 
-
+            modelBuilder.Entity<Site>().HasData(sites);
+            modelBuilder.Entity<Car>().HasData(cars);
+            modelBuilder.Entity<Site>().HasData(drivers);
         }
     }
 }

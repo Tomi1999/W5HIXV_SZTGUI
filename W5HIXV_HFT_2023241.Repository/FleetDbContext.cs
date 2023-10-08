@@ -11,7 +11,7 @@ namespace W5HIXV_HFT_2023241.Repository
     public class FleetDbContext : DbContext
     {
         public DbSet<Site> Sites { get; set; }
-        public DbSet<Cars> Cars { get; set; }
+        public DbSet<Car> Cars { get; set; }
         public DbSet<Driver> Drivers { get; set; }
         
 
@@ -27,9 +27,12 @@ namespace W5HIXV_HFT_2023241.Repository
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Cars>()
-                .HasOne(t=>t.Driver)
-                .WithOne(t=>t.Site)
+            modelBuilder.Entity<Driver>()
+                .HasOne(t=>t.Site)
+                .WithMany(t=>t.Drivers);
+            modelBuilder.Entity<Car>()
+                .HasOne(t => t.Site)
+                .WithMany(t => t.Cars);
                 
         }
     }

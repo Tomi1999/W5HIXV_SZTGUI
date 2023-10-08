@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,15 +25,17 @@ namespace W5HIXV_HFT_2023241.Repository
         {
             builder.UseLazyLoadingProxies()
                 .UseInMemoryDatabase("Fleet");
+            base.OnConfiguring(builder);
+
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Driver>()
-                .HasOne(t=>t.Site)
-                .WithMany(t=>t.Drivers);
-            modelBuilder.Entity<Car>()
-                .HasOne(t => t.Site)
-                .WithMany(t => t.Cars);
+            modelBuilder.Entity<Site>()
+                .HasMany(t => t.Cars)
+                .WithOne(t=>t.Site);
+            modelBuilder.Entity<Site>()
+                .HasMany(t => t.Drivers)
+                .WithOne(t=>t.Site);
             var sites = new List<Site>
             {
                 new Site()
@@ -65,7 +68,8 @@ namespace W5HIXV_HFT_2023241.Repository
                     Plate = "ABC123",
                     Brand = "Ivecco",
                     Total_Weith = 3500,
-                    DriverId = 1
+                    DriverId = 1,
+                    SiteId = 1
                 },
                 new Car()
                 {
@@ -73,7 +77,8 @@ namespace W5HIXV_HFT_2023241.Repository
                     Plate = "ABB123",
                     Brand = "Ivecco",
                     Total_Weith = 7500,
-                    DriverId = 2
+                    DriverId = 2,
+                    SiteId = 1
                 },
                 new Car()
                 {
@@ -81,7 +86,8 @@ namespace W5HIXV_HFT_2023241.Repository
                     Plate = "BBB123",
                     Brand = "Ivecco",
                     Total_Weith = 7500,
-                    DriverId = 3
+                    DriverId = 3,
+                    SiteId = 1
                 },
                 new Car()
                 {
@@ -89,7 +95,8 @@ namespace W5HIXV_HFT_2023241.Repository
                     Plate = "BBC123",
                     Brand = "MAN",
                     Total_Weith = 7500,
-                    DriverId = 4
+                    DriverId = 4,
+                    SiteId = 2
                 },
                 new Car()
                 {
@@ -97,7 +104,8 @@ namespace W5HIXV_HFT_2023241.Repository
                     Plate = "BBD123",
                     Brand = "MAN",
                     Total_Weith = 7500,
-                    DriverId = 5
+                    DriverId = 5,
+                    SiteId = 2
                 },
                 new Car()
                 {
@@ -105,7 +113,8 @@ namespace W5HIXV_HFT_2023241.Repository
                     Plate = "BBE123",
                     Brand = "Renault",
                     Total_Weith = 7500,
-                    DriverId = 6
+                    DriverId = 6,
+                    SiteId = 2
                 },
                 new Car()
                 {
@@ -113,7 +122,8 @@ namespace W5HIXV_HFT_2023241.Repository
                     Plate = "BBF123",
                     Brand = "Scania",
                     Total_Weith = 7500,
-                    DriverId = 7
+                    DriverId = 7,
+                    SiteId = 3
                 },
                 new Car()
                 {
@@ -121,7 +131,8 @@ namespace W5HIXV_HFT_2023241.Repository
                     Plate = "BBF153",
                     Brand = "Scania",
                     Total_Weith = 7500,
-                    DriverId = 8
+                    DriverId = 8,
+                    SiteId = 3
                 },
                 new Car()
                 {
@@ -129,7 +140,8 @@ namespace W5HIXV_HFT_2023241.Repository
                     Plate = "BBF166",
                     Brand = "Renault",
                     Total_Weith = 7500,
-                    DriverId = 9
+                    DriverId = 9,
+                    SiteId = 3
                 }
             };
             var drivers = new List<Driver> 
@@ -202,7 +214,8 @@ namespace W5HIXV_HFT_2023241.Repository
 
             modelBuilder.Entity<Site>().HasData(sites);
             modelBuilder.Entity<Car>().HasData(cars);
-            modelBuilder.Entity<Site>().HasData(drivers);
+            modelBuilder.Entity<Driver>().HasData(drivers);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

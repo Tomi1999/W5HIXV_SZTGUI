@@ -23,6 +23,9 @@ namespace W5HIXV_HFT_2023241.Models
         [ForeignKey(nameof(Driver))]
         public int DriverId { get; set; }
 
+        [ForeignKey(nameof(Site))]
+        public int SiteId { get; set; }
+
         [NotMapped]
         public virtual Driver Driver { get; set; }
 

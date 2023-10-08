@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using W5HIXV_HFT_2023241.Repository;
 
 namespace W5HIXV_HFT_2023241.Client
 {
@@ -6,7 +8,7 @@ namespace W5HIXV_HFT_2023241.Client
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }

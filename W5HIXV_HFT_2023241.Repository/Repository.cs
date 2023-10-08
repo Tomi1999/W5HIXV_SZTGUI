@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace W5HIXV_HFT_2023241.Repository
 {
-    abstract class Repository<T> : IRepository<T> where T : class
+    public abstract class Repository<T> : IRepository<T> where T : class
     {
         FleetDbContext ctx;
         protected Repository(FleetDbContext ctx)

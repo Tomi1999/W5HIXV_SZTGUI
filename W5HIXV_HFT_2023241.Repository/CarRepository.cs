@@ -15,12 +15,12 @@ namespace W5HIXV_HFT_2023241.Repository
 
         public override Car Read(int id)
         {
-            ;
+            throw new NotImplementedException();
         }
 
         public override void Update(Car item)
         {
-           ;
+            throw new NotImplementedException();
         }
     }
 }

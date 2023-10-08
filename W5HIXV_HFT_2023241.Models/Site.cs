@@ -20,6 +20,9 @@ namespace W5HIXV_HFT_2023241.Models
 
         [NotMapped]
         public virtual List<Driver> Drivers { get; set; }
+
+        [NotMapped]
+        public virtual List<Car> Cars { get; set;}
         
     }
 }

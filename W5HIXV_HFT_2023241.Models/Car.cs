@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace W5HIXV_HFT_2023241.Models
 {
     [Table("Cars")]
-    public class Cars
+    public class Car
     {
         [Key]
         public int Id { get; set; }
@@ -27,5 +27,8 @@ namespace W5HIXV_HFT_2023241.Models
 
         [NotMapped]
         public virtual Driver Driver { get; set; }
+
+        [NotMapped]
+        public virtual Site Site { get; set; }  
     }
 }

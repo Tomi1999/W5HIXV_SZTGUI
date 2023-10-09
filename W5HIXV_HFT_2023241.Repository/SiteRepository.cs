@@ -9,13 +9,13 @@ namespace W5HIXV_HFT_2023241.Repository
 {
     public class SiteRepository : Repository<Site>, IRepository<Site>
     {
-        public SiteRepository(FleetDbContext ctx) : base(ctx)
+        public SiteRepository(FleetDbContext ctx) : base(ctx) 
         {
         }
 
         public override Site Read(int id)
         {
-            return ctx.Sites.FirstOrDefault(t=>t.Id== id);
+            return ctx.Sites.First(t => t.Id == id);
         }
 
         public override void Update(Site item)

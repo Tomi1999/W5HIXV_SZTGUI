@@ -9,7 +9,7 @@ namespace W5HIXV_HFT_2023241.Repository
 {
     public class CarRepository : Repository<Car>, IRepository<Car>
     {
-        public CarRepository(FleetDbContext ctx) : base(ctx)
+        public CarRepository(FleetDbContext ctx) : base(ctx)     
         {
         }
 

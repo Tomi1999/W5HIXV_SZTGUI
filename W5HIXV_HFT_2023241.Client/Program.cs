@@ -96,9 +96,9 @@ namespace W5HIXV_HFT_2023241.Client
         }
         static void Update(string entity)
         {
-            if (entity == "Company")
+            if (entity == "Site")
             {
-                Console.Write("Enter Company's id to update: ");
+                Console.Write("Enter site's id to update: ");
                 int id = int.Parse(Console.ReadLine());
                 Site one = rest.Get<Site>(id, "site");
                 rest.Delete(id, "site");
@@ -115,7 +115,7 @@ namespace W5HIXV_HFT_2023241.Client
                 {
                     one.Name = input;
                 }
-                rest.Post(one, "company");
+                rest.Post(one, "site");
             }
             else if (entity == "Car")
             {
@@ -137,7 +137,7 @@ namespace W5HIXV_HFT_2023241.Client
                 string input = Console.ReadLine();
                 rest.Delete(id, "specialdisch");
                 one.Distance = int.Parse(input);
-                rest.Post(one, "specialdisch");
+                rest.Post(one, "driver");
 
             }
         }
@@ -155,7 +155,7 @@ namespace W5HIXV_HFT_2023241.Client
                 int id = int.Parse(Console.ReadLine());
                 rest.Delete(id, "car");
             }
-            else if (entity == "SpecialDisch")
+            else if (entity == "Driver")
             {
                 Console.Write("Enter the id of dthe driver: ");
                 int id = int.Parse(Console.ReadLine());

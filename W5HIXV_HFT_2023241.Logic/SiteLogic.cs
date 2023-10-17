@@ -42,12 +42,12 @@ namespace W5HIXV_HFT_2023241.Logic
 
         public IEnumerable<Car> CarsInSite(Site a)
         {
-            return (IEnumerable<Car>)this.repo.ReadAll().Select(t=>t.Cars);
+            return (IEnumerable<Car>)this.repo.ReadAll().Where(t=>t.Id == a.Id).Select(t=>t.Cars);
         }
 
         public IEnumerable<Driver> DriverInSite(Site a)
         {
-            return (IEnumerable<Driver>)this.repo.ReadAll().Select(t => t.Drivers);
+            return (IEnumerable<Driver>)this.repo.ReadAll().Where(t => t.Id == a.Id).Select(t => t.Drivers);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using W5HIXV_HFT_2023241.Models;
 using W5HIXV_HFT_2023241.Repository;
 
@@ -12,5 +13,7 @@ namespace W5HIXV_HFT_2023241.Logic
         public Car Read(int id);
         public IQueryable<Car> ReadAll();
         public void Update(Car item);
+        public IEnumerable<Car> CarsOverTW(int weith);
+        public IEnumerable<Car> GetBrands(string brand);
     }
 }

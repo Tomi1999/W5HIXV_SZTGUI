@@ -40,5 +40,14 @@ namespace W5HIXV_HFT_2023241.Logic
         {
             this.repo.Update(item);
         }
+        public IEnumerable<Car> CarsOverTW(int weith)
+        {
+            return this.repo.ReadAll().Where(t => t.Total_Weith > weith);
+        }
+
+        public IEnumerable<Car> GetBrands(string brand)
+        {
+            return this.repo.ReadAll().Where(t => t.Brand == brand);
+        }
     }
 }

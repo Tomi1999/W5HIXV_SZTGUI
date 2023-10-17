@@ -42,5 +42,9 @@ namespace W5HIXV_HFT_2023241.Logic
             this.repo.Update(item);
         }
 
+        public IEnumerable<Driver> DriversOverValue(int value)
+        {
+            return (IEnumerable<Driver>)this.repo.ReadAll().Where(t => t.Distance > value);
+        }
     }
 }

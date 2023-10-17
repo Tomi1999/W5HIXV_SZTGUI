@@ -13,20 +13,23 @@ namespace W5HIXV_HFT_2023241.Client
         {
             if (entity == "Site")
             {
-                
+                Console.WriteLine("Enter the Id:");
+                string id = Console.ReadLine();
                 Console.Write("Enter Site name: ");
                 string name = Console.ReadLine();
                 Console.Write("Enter Site address: ");
                 string addr = Console.ReadLine();
-                Console.Write("Enter Company CEO: ");
                 rest.Post(new Site()
                 {
+                    Id = int.Parse(id),
                     Name = name,
                     Address = addr,
                 }, "swagger");
             }
             else if (entity == "Car")
             {
+                Console.WriteLine("Enter the Id:");
+                string id = Console.ReadLine();
                 Console.Write("Enter Plate number: ");
                 string plate = Console.ReadLine();
                 Console.Write("Enter Brand: ");
@@ -39,16 +42,19 @@ namespace W5HIXV_HFT_2023241.Client
                 string driv = Console.ReadLine();
                 rest.Post(new Car()
                 {
+                    Id = int.Parse(id),
                     Plate = plate,
                     Brand = bran,
                     Total_Weith = int.Parse(wt),
                     DriverId = int.Parse(site),
                     SiteId = int.Parse(driv)
 
-                }, "swagger");
+                }, "swagger") ;
             }
             else if (entity == "Driver")
             {
+                Console.WriteLine("Enter the Id:");
+                string id = Console.ReadLine();
                 Console.Write("Enter Driver name: ");
                 string name = Console.ReadLine();
                 Console.Write("Enter distance: ");
@@ -58,6 +64,7 @@ namespace W5HIXV_HFT_2023241.Client
 
                 rest.Post(new Driver()
                 {
+                    Id = int.Parse(id),
                     Name = name,
                     Distance = int.Parse(dis),
                     SiteId = int.Parse(site)

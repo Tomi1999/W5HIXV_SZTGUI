@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using W5HIXV_HFT_2023241.Models;
 using W5HIXV_HFT_2023241.Repository;
 
@@ -12,7 +13,7 @@ namespace W5HIXV_HFT_2023241.Logic
         public Site Read(int id);
         public IQueryable<Site> ReadAll();
         public void Update(Site item);
-        public IQueryable<Car> CarsInSite(Site a);
-        public IQueryable<Driver> DriverInSite(Site a);
+        public IEnumerable<Car> CarsInSite(Site a);
+        public IEnumerable<Driver> DriverInSite(Site a);
     }
 }

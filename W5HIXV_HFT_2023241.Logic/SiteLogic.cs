@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using W5HIXV_HFT_2023241.Models;
 using W5HIXV_HFT_2023241.Repository;
@@ -39,14 +40,14 @@ namespace W5HIXV_HFT_2023241.Logic
             return this.repo.ReadAll();
         }
 
-        public IQueryable<Car> CarsInSite(Site a)
+        public IEnumerable<Car> CarsInSite(Site a)
         {
-            return (IQueryable<Car>)this.repo.ReadAll().Select(t=>t.Cars);
+            return (IEnumerable<Car>)this.repo.ReadAll().Select(t=>t.Cars);
         }
 
-        public IQueryable<Driver> DriverInSite(Site a)
+        public IEnumerable<Driver> DriverInSite(Site a)
         {
-            return (IQueryable<Driver>)this.repo.ReadAll().Select(t => t.Drivers);
+            return (IEnumerable<Driver>)this.repo.ReadAll().Select(t => t.Drivers);
         }
     }
 }

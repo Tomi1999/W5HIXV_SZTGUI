@@ -19,10 +19,10 @@ namespace W5HIXV_HFT_2023241.Models
         public string Address { get; set; }
 
         [NotMapped]
-        public virtual ICollection<Driver> Drivers { get; set; }
+        public virtual List<Driver> Drivers { get; set; }
 
         [NotMapped]
-        public virtual ICollection<Car> Cars { get; set;}
+        public virtual List<Car> Cars { get; set;}
         
     }
 }

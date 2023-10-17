@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace W5HIXV_HFT_2023241.Models
@@ -26,9 +27,11 @@ namespace W5HIXV_HFT_2023241.Models
         [ForeignKey(nameof(Site))]
         public int SiteId { get; set; }
 
+        [JsonIgnore]
         [NotMapped]
         public virtual Driver Driver { get; set; }
 
+        [JsonIgnore]
         [NotMapped]
         public virtual Site Site { get; set; }  
     }

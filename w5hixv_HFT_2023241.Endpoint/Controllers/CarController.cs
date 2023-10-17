@@ -7,6 +7,8 @@ using W5HIXV_HFT_2023241.Models;
 
 namespace w5hixv_HFT_2023241.Endpoint.Controllers
 {
+    [Route("[controller]")]
+    [ApiController]
     public class CarController : Controller
     {
         ICarLogic logic;

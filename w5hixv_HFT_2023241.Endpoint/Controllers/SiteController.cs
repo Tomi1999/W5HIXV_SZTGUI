@@ -5,7 +5,7 @@ using W5HIXV_HFT_2023241.Models;
 
 namespace w5hixv_HFT_2023241.Endpoint.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class SiteController : ControllerBase
     {

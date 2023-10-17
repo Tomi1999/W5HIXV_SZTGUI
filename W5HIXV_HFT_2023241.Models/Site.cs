@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace W5HIXV_HFT_2023241.Models
@@ -18,9 +19,11 @@ namespace W5HIXV_HFT_2023241.Models
 
         public string Address { get; set; }
 
+        [JsonIgnore]
         [NotMapped]
         public virtual List<Driver> Drivers { get; set; }
 
+        [JsonIgnore]
         [NotMapped]
         public virtual List<Car> Cars { get; set;}
         

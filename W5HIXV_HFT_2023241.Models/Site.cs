@@ -13,6 +13,7 @@ namespace W5HIXV_HFT_2023241.Models
     public class Site
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; } 
 
         public string Name { get; set; }    

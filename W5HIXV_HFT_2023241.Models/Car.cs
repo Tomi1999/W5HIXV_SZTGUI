@@ -13,6 +13,7 @@ namespace W5HIXV_HFT_2023241.Models
     public class Car
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public string Plate {  get; set; }  

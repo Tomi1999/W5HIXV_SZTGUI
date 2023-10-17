@@ -29,14 +29,24 @@ namespace W5HIXV_HFT_2023241.Logic
             return this.repo.Read(id);
         }
 
+        public void Update(Site item) 
+        {
+            this.repo.Update(item); 
+        }
+
         public IQueryable<Site> ReadAll()
         {
             return this.repo.ReadAll();
         }
 
-        public void Update(Site item) 
+        public IQueryable<Car> CarsInSite(Site a)
         {
-            this.repo.Update(item); 
+            return (IQueryable<Car>)this.repo.ReadAll().Select(t=>t.Cars);
+        }
+
+        public IQueryable<Driver> DriverInSite(Site a)
+        {
+            return (IQueryable<Driver>)this.repo.ReadAll().Select(t => t.Drivers);
         }
     }
 }

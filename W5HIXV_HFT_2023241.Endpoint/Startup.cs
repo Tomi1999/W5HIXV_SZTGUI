@@ -10,6 +10,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using W5HIXV_HFT_2023241.Logic;
+using W5HIXV_HFT_2023241.Models;
+using W5HIXV_HFT_2023241.Repository;
 
 namespace w5hixv_HFT_2023241.Endpoint
 {
@@ -25,7 +28,16 @@ namespace w5hixv_HFT_2023241.Endpoint
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<FleetDbContext>();
 
+            services.AddTransient<IRepository<Site>, SiteRepository>();
+            services.AddTransient<IRepository<Car>, CarRepository>();
+            services.AddTransient<IRepository<Driver>, DriverRepository>();
+
+            services.AddTransient<ISiteLogic, SiteLogic>();
+            services.AddTransient<ICarLogic, CarLogic>();
+            services.AddTransient<IDriverLogic, DriverLogic>();
+    
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

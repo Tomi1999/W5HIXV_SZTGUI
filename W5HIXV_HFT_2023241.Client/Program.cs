@@ -126,7 +126,7 @@ namespace W5HIXV_HFT_2023241.Client
             }
             else if (entity == "Car")
             {
-                Console.Write("Enter serviceplace's id to update: ");
+                Console.Write("Enter car's id to update: ");
                 int id = int.Parse(Console.ReadLine());
                 Car one = rest.Get<Car>(id, "car");
                 Console.WriteLine("What is the new plate number?");
@@ -137,12 +137,12 @@ namespace W5HIXV_HFT_2023241.Client
             }
             else if (entity == "Driver")
             {
-                Console.Write("Enter serviceplace's id to update: ");
+                Console.Write("Enter driver's id to update: ");
                 int id = int.Parse(Console.ReadLine());
-                Driver one = rest.Get<Driver>(id, "specialdisch");
+                Driver one = rest.Get<Driver>(id, "driver");
                 Console.WriteLine("What is the new distance?");
                 string input = Console.ReadLine();
-                rest.Delete(id, "specialdisch");
+                rest.Delete(id, "driver");
                 one.Distance = int.Parse(input);
                 rest.Post(one, "driver");
 

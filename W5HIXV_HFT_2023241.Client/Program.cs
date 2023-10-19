@@ -217,7 +217,7 @@ namespace W5HIXV_HFT_2023241.Client
                 try
                 {
                     id = int.Parse(Console.ReadLine());
-                    var site = rest.Get<Driver>(id, "site");
+                    var site = rest.Get<Driver>(id, "driver");
                     Console.WriteLine($"({site.Id}) {site.Name} - {site.Distance}");
                     Console.ReadLine();
                 }

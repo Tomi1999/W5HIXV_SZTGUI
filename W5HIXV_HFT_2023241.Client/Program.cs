@@ -190,12 +190,27 @@ namespace W5HIXV_HFT_2023241.Client
               .Add("Delete", () => Delete("Driver"))
               .Add("Update", () => Update("Driver"))
               .Add("Exit", ConsoleMenu.Close);
+            var NonCrudS = new ConsoleMenu(args, level: 1)
+                .Add("Cars in site", () => List("SiteNonA"))
+                .Add("Driver in Site", ()=>List("SiteNonB"))
+                .Add("Exit", ConsoleMenu.Close);
+            var NonCrudC = new ConsoleMenu(args, level: 1)
+                .Add("Cars over total weith", () => List("CarNonA"))
+                .Add("Get cars from brand", () => List("CarNonB"))
+                .Add("Exit", ConsoleMenu.Close);
+            var NonCrudD = new ConsoleMenu(args, level: 1)
+                .Add("Drivers over distance", () => List("DrivNon"))
+                .Add("Exit", ConsoleMenu.Close);
+
 
 
             var menu = new ConsoleMenu(args, level: 0)
                 .Add("Site", () => SiteMenu.Show())
                 .Add("Car", () => CarMenu.Show())
                 .Add("Driver", () => DriverMenu.Show())
+                .Add("Non crud site", ()=> NonCrudS.Show())
+                .Add("Non crud car", ()=> NonCrudC.Show())
+                .Add("Non crud driver", ()=> NonCrudD.Show())
                 .Add("Exit", ConsoleMenu.Close);
                 menu.Show();
 

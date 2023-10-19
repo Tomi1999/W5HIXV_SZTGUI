@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using W5HIXV_HFT_2023241.Models;
 
 namespace W5HIXV_HFT_2023241.Client
@@ -24,7 +25,7 @@ namespace W5HIXV_HFT_2023241.Client
                     Id = int.Parse(id),
                     Name = name,
                     Address = addr,
-                }, "swagger");
+                }, "site");
             }
             else if (entity == "Car")
             {
@@ -49,7 +50,7 @@ namespace W5HIXV_HFT_2023241.Client
                     DriverId = int.Parse(site),
                     SiteId = int.Parse(driv)
 
-                }, "swagger") ;
+                }, "car") ;
             }
             else if (entity == "Driver")
             {
@@ -69,7 +70,7 @@ namespace W5HIXV_HFT_2023241.Client
                     Distance = int.Parse(dis),
                     SiteId = int.Parse(site)
 
-                }, "swagger");
+                }, "driver");
 
             }
         }
@@ -164,9 +165,68 @@ namespace W5HIXV_HFT_2023241.Client
             }
             else if (entity == "Driver")
             {
-                Console.Write("Enter the id of dthe driver: ");
+                Console.Write("Enter the id of the driver: ");
                 int id = int.Parse(Console.ReadLine());
                 rest.Delete(id, "driver");
+            }
+        }
+        static void Read(string entity)
+        {
+            if (entity == "Site")
+            {
+                int id = 0;
+                Console.WriteLine("Enter Site's Id:");
+                try
+                {
+                    id = int.Parse(Console.ReadLine());
+                    var site = rest.Get<Site>(id, "site");
+                    Console.WriteLine($"({site.Id}) {site.Name} - {site.Address}");
+                    Console.ReadLine();
+                }
+                catch (Exception)
+                {
+
+                    Console.WriteLine("Invalid Input");
+                }
+
+            }
+            else if (entity == "Car")
+            {
+                int id = 0;
+                Console.WriteLine("Enter Car's Id:");
+                try
+                {
+                    id = int.Parse(Console.ReadLine());
+                    var car = rest.Get<Car>(id, "car");
+                    Console.WriteLine($"({car.Id}) {car.Brand} - {car.Plate}");
+                    Console.ReadLine();
+                }
+                catch (Exception)
+                {
+
+                    Console.WriteLine("Invalid Input");
+                }
+                
+               
+                
+            }
+            else if (entity == "Driver")
+            {
+                int id = 0;
+                Console.WriteLine("Enter Driver's Id:");
+                try
+                {
+                    id = int.Parse(Console.ReadLine());
+                    var site = rest.Get<Driver>(id, "site");
+                    Console.WriteLine($"({site.Id}) {site.Name} - {site.Distance}");
+                    Console.ReadLine();
+                }
+                catch (Exception)
+                {
+
+                    Console.WriteLine("Invalid Input");
+                }
+
             }
         }
         static void Main(string[] args)
@@ -175,18 +235,21 @@ namespace W5HIXV_HFT_2023241.Client
             var SiteMenu = new ConsoleMenu(args, level: 1)
                .Add("List", () => List("Site"))
                .Add("Create", () => Create("Site"))
+               .Add("Get an element", ()=> Read("Site"))
                .Add("Delete", () => Delete("Site"))
                .Add("Update", () => Update("Site"))
                .Add("Exit", ConsoleMenu.Close);
             var CarMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => List("Car"))
                 .Add("Create", () => Create("Car"))
+                .Add("Get an element", () => Read("Car"))
                 .Add("Delete", () => Delete("Car"))
                 .Add("Update", () => Update("Car"))
                 .Add("Exit", ConsoleMenu.Close);
             var DriverMenu = new ConsoleMenu(args, level: 1)
               .Add("List", () => List("Driver"))
               .Add("Create", () => Create("Driver"))
+              .Add("Get an element", () => Read("Driver"))
               .Add("Delete", () => Delete("Driver"))
               .Add("Update", () => Update("Driver"))
               .Add("Exit", ConsoleMenu.Close);

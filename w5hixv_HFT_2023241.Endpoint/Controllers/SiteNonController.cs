@@ -23,9 +23,9 @@ namespace w5hixv_HFT_2023241.Endpoint.Controllers
             return logic.SitesSize(size);
         }
         [HttpGet]
-        public IEnumerable<Driver> DriverInSite(int id)
+        public IEnumerable<Site> SiteInCity(string city)
         {
-            return logic.DriverInSite(id);
+            return logic.SiteInCity(city);
         }
     }
 }

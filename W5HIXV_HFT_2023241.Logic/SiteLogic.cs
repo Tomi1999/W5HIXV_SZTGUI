@@ -46,9 +46,9 @@ namespace W5HIXV_HFT_2023241.Logic
             return this.repo.ReadAll().Where(t => t.Size == size);
         }
 
-        public IEnumerable<Driver> DriverInSite(int id)
+        public IEnumerable<Site> SiteInCity(string city)
         {
-            return this.repo.Read(id).Drivers;
+            return this.repo.ReadAll().Where(t => t.City == city);
         }
     }
 }

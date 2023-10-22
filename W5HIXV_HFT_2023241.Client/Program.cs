@@ -306,8 +306,8 @@ namespace W5HIXV_HFT_2023241.Client
               .Add("Update", () => Update("Driver"))
               .Add("Exit", ConsoleMenu.Close);
             var NonCrudS = new ConsoleMenu(args, level: 1)
-                .Add("Cars in site", () => List("SiteNonA"))
-                .Add("Driver in Site", ()=>List("SiteNonB"))
+                .Add("Size", () => List("SiteNonA"))
+                .Add("City", ()=>List("SiteNonB"))
                 .Add("Exit", ConsoleMenu.Close);
             var NonCrudC = new ConsoleMenu(args, level: 1)
                 .Add("Cars over total weith", () => List("CarNonA"))

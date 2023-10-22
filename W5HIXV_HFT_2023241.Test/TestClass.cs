@@ -120,41 +120,15 @@ namespace W5HIXV_HFT_2023241.Test
                     Id = 1,
                     Size = "Big",
                     Address = "Budapest, Europa u. 6, 1239",
-                    Drivers = new List<Driver>()
-                    {
-                         new Driver()
-                         {
-                            Id = 1,
-                            Name = "John Doe",
-                            Distance = 564,
-                            SiteId = 1
-                         },
-                         new Driver()
-                         {
-                            Id = 2,
-                            Name = "Johanna Forsner",
-                            Distance = 54,
-                            SiteId = 1
-                         },
-                         new Driver()
-                         {
-                            Id = 3,
-                            Name = "Bob Dilan",
-                            Distance = 5645,
-                            SiteId = 1
-                          }
-                    },
-                    Cars = new List<Car>()
-                    {
+                    City = "Budapest"
 
-                    }
                },
                new Site()
                {
                     Id = 2,
                     Size = "Medium",
                     Address = "Budapest, Nagykorösi út 351, 1239",
-                    
+                    City = "Budapest"
 
                },
                new Site()
@@ -162,6 +136,7 @@ namespace W5HIXV_HFT_2023241.Test
                     Id = 3,
                     Size = "Smal",
                     Address = "Budapest, Könyves Kálmán krt. 13, 1097",
+                    City = "Budapest"
 
                }
             }.AsQueryable());
@@ -259,6 +234,16 @@ namespace W5HIXV_HFT_2023241.Test
         {
 
             var sizetest = this.siteLogic.SitesSize("Medium");
+            foreach (var item in sizetest)
+            {
+                Assert.That(item.Size == "Medium");
+            }
+            
+        }
+        [Test]
+        public void SecondNonCrudMethod()
+        {
+            var drivers = this.siteLogic.DriverInSite(1);
             ;
         }
     }

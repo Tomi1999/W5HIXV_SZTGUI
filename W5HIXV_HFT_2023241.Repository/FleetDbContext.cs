@@ -44,6 +44,7 @@ namespace W5HIXV_HFT_2023241.Repository
                     Id = 1,
                     Size = "Big",
                     Address = "Budapest, Europa u. 6, 1239",
+                    City = "Budapest"
 
                 },
                  new Site()
@@ -51,6 +52,7 @@ namespace W5HIXV_HFT_2023241.Repository
                     Id = 2,
                     Size = "Medium",
                     Address = "Budapest, Nagykorösi út 351, 1239",
+                    City = "Budapest"
 
                 },
                  new Site()
@@ -58,6 +60,7 @@ namespace W5HIXV_HFT_2023241.Repository
                     Id = 3,
                     Size = "Smal",
                     Address = "Budapest, Könyves Kálmán krt. 13, 1097",
+                    City = "Budapest"
 
                 }
             };

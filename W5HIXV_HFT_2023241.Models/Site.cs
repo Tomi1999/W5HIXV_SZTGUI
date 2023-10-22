@@ -20,6 +20,8 @@ namespace W5HIXV_HFT_2023241.Models
 
         public string Address { get; set; }
 
+        public string City { get; set; }    
+
         [JsonIgnore]
         [NotMapped]
         public virtual List<Driver> Drivers { get; set; }

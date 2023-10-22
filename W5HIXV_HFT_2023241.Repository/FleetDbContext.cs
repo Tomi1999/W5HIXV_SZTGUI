@@ -58,7 +58,7 @@ namespace W5HIXV_HFT_2023241.Repository
                  new Site()
                 {
                     Id = 3,
-                    Size = "Smal",
+                    Size = "Small",
                     Address = "Budapest, Könyves Kálmán krt. 13, 1097",
                     City = "Budapest"
 

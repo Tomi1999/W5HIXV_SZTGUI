@@ -104,9 +104,9 @@ namespace W5HIXV_HFT_2023241.Client
 
             else if (entity == "SiteNonA")
             {
-                Console.WriteLine("Enter the sight's Id");
-                int id = int.Parse(Console.ReadLine());
-                List<Site> cars = rest.Get<Site>($"SiteNon/SitesSize?id={id}");
+                Console.WriteLine("Enter the sight's size");
+                string id = Console.ReadLine();
+                List<Site> cars = rest.Get<Site>($"SiteNon/SitesSize?size={id}");
                 foreach (var item in cars)
                 {
                     Console.WriteLine(item.Id + ": " + item.Size + "-" + item.Address);
@@ -114,12 +114,12 @@ namespace W5HIXV_HFT_2023241.Client
             }
             else if (entity == "SiteNonB")
             {
-                Console.WriteLine("Enter the sight's Id");
-                int id = int.Parse(Console.ReadLine());
-                List<Driver> cars = rest.Get<Driver>($"SiteNon/DriverInSite?id={id}");
+                Console.WriteLine("Enter the sight's city");
+                string id = Console.ReadLine();
+                List<Site> cars = rest.Get<Site>($"SiteNon/SiteInCity?city={id}");
                 foreach (var item in cars)
                 {
-                    Console.WriteLine(item.Id + ": " + item.Name + "-" + item.Distance+"Km");
+                    Console.WriteLine(item.Id + ": " + item.Size + "-" + item.Address);
                 }
             }
             else if (entity == "CarNonA")

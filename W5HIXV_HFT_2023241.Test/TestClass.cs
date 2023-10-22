@@ -118,21 +118,49 @@ namespace W5HIXV_HFT_2023241.Test
                new Site()
                {
                     Id = 1,
-                    Name = "Big",
+                    Size = "Big",
                     Address = "Budapest, Europa u. 6, 1239",
+                    Drivers = new List<Driver>()
+                    {
+                         new Driver()
+                         {
+                            Id = 1,
+                            Name = "John Doe",
+                            Distance = 564,
+                            SiteId = 1
+                         },
+                         new Driver()
+                         {
+                            Id = 2,
+                            Name = "Johanna Forsner",
+                            Distance = 54,
+                            SiteId = 1
+                         },
+                         new Driver()
+                         {
+                            Id = 3,
+                            Name = "Bob Dilan",
+                            Distance = 5645,
+                            SiteId = 1
+                          }
+                    },
+                    Cars = new List<Car>()
+                    {
 
+                    }
                },
                new Site()
                {
                     Id = 2,
-                    Name = "Medium",
+                    Size = "Medium",
                     Address = "Budapest, Nagykorösi út 351, 1239",
+                    
 
                },
                new Site()
-               {   
+               {
                     Id = 3,
-                    Name = "Smal",
+                    Size = "Smal",
                     Address = "Budapest, Könyves Kálmán krt. 13, 1097",
 
                }
@@ -226,6 +254,12 @@ namespace W5HIXV_HFT_2023241.Test
                 }
             }
         }
-       
+        [Test]
+        public void FirstNonCrudMethod()
+        {
+
+            var sizetest = this.siteLogic.SitesSize("Medium");
+            ;
+        }
     }
 }

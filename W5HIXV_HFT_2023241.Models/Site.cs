@@ -16,7 +16,7 @@ namespace W5HIXV_HFT_2023241.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; } 
 
-        public string Name { get; set; }    
+        public string Size { get; set; }    
 
         public string Address { get; set; }
 

@@ -16,14 +16,14 @@ namespace W5HIXV_HFT_2023241.Client
             {
                 Console.WriteLine("Enter the Id:");
                 string id = Console.ReadLine();
-                Console.Write("Enter Site name: ");
+                Console.Write("Enter Site size: ");
                 string name = Console.ReadLine();
                 Console.Write("Enter Site address: ");
                 string addr = Console.ReadLine();
                 rest.Post(new Site()
                 {
                     Id = int.Parse(id),
-                    Name = name,
+                    Size = name,
                     Address = addr,
                 }, "site");
             }
@@ -82,7 +82,7 @@ namespace W5HIXV_HFT_2023241.Client
                 List<Site> sites = rest.Get<Site>("site");
                 foreach (var item in sites)
                 {
-                    Console.WriteLine(item.Id + ": " + item.Name+"-"+item.Address);
+                    Console.WriteLine(item.Id + ": " + item.Size+"-"+item.Address);
                 }
             }
             else if (entity == "Car")
@@ -106,10 +106,10 @@ namespace W5HIXV_HFT_2023241.Client
             {
                 Console.WriteLine("Enter the sight's Id");
                 int id = int.Parse(Console.ReadLine());
-                List<Car> cars = rest.Get<Car>($"SiteNon/CarsInSite?id={id}");
+                List<Site> cars = rest.Get<Site>($"SiteNon/SitesSize?id={id}");
                 foreach (var item in cars)
                 {
-                    Console.WriteLine(item.Id + ": " + item.Plate + "-" + item.Brand);
+                    Console.WriteLine(item.Id + ": " + item.Size + "-" + item.Address);
                 }
             }
             else if (entity == "SiteNonB")
@@ -163,7 +163,7 @@ namespace W5HIXV_HFT_2023241.Client
                 Site one = rest.Get<Site>(id, "site");
                 rest.Delete(id, "site");
                 Console.WriteLine("What do you want to change? write the following");
-                Console.WriteLine("address - write ad, Site name - write sn");
+                Console.WriteLine("address - write ad, Site size - write si");
                 string up = Console.ReadLine();
                 Console.WriteLine("please write it");
                 string input = Console.ReadLine();
@@ -173,7 +173,7 @@ namespace W5HIXV_HFT_2023241.Client
                 }
                 else if (up == "cn")
                 {
-                    one.Name = input;
+                    one.Size = input;
                 }
                 rest.Post(one, "site");
             }
@@ -232,7 +232,7 @@ namespace W5HIXV_HFT_2023241.Client
                 {
                     id = int.Parse(Console.ReadLine());
                     var site = rest.Get<Site>(id, "site");
-                    Console.WriteLine($"({site.Id}) {site.Name} - {site.Address}");
+                    Console.WriteLine($"({site.Id}) {site.Size} - {site.Address}");
                     Console.ReadLine();
                 }
                 catch (Exception)

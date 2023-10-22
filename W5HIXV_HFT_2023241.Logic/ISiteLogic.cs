@@ -13,7 +13,7 @@ namespace W5HIXV_HFT_2023241.Logic
         public Site Read(int id);
         public IQueryable<Site> ReadAll();
         public void Update(Site item);
-        public IEnumerable<Car> CarsInSite(int id);
+        public IEnumerable<Site> SitesSize(string size);
         public IEnumerable<Driver> DriverInSite(int id);
     }
 }

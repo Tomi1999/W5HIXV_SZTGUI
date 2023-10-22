@@ -42,21 +42,21 @@ namespace W5HIXV_HFT_2023241.Repository
                 new Site()
                 {
                     Id = 1,
-                    Name = "Big",
+                    Size = "Big",
                     Address = "Budapest, Europa u. 6, 1239",
 
                 },
                  new Site()
                 {
                     Id = 2,
-                    Name = "Medium",
+                    Size = "Medium",
                     Address = "Budapest, Nagykorösi út 351, 1239",
 
                 },
                  new Site()
                 {
                     Id = 3,
-                    Name = "Smal",
+                    Size = "Smal",
                     Address = "Budapest, Könyves Kálmán krt. 13, 1097",
 
                 }

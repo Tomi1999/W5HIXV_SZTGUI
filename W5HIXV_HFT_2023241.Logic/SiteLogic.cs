@@ -41,9 +41,9 @@ namespace W5HIXV_HFT_2023241.Logic
             return this.repo.ReadAll();
         }
 
-        public IEnumerable<Car> CarsInSite(int id)
+        public IEnumerable<Site> SitesSize(string size)
         {
-            return this.repo.Read(id).Cars;
+            return this.repo.ReadAll().Where(t => t.Size == size);
         }
 
         public IEnumerable<Driver> DriverInSite(int id)

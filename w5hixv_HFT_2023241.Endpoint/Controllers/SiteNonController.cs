@@ -18,9 +18,9 @@ namespace w5hixv_HFT_2023241.Endpoint.Controllers
             this.logic = logic;
         }
         [HttpGet]
-        public IEnumerable<Car> CarsInSite(int id)
+        public IEnumerable<Site> SitesSize(string size)
         {
-            return logic.CarsInSite(id);
+            return logic.SitesSize(size);
         }
         [HttpGet]
         public IEnumerable<Driver> DriverInSite(int id)

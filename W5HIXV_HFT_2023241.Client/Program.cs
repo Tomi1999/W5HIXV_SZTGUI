@@ -73,31 +73,83 @@ namespace W5HIXV_HFT_2023241.Client
                 }, "driver");
 
             }
+           
         }
         static void List(string entity)
         {
             if (entity == "Site")
             {
-                List<Site> companies = rest.Get<Site>("site");
-                foreach (var item in companies)
+                List<Site> sites = rest.Get<Site>("site");
+                foreach (var item in sites)
                 {
                     Console.WriteLine(item.Id + ": " + item.Name+"-"+item.Address);
                 }
             }
             else if (entity == "Car")
             {
-                List<Car> places = rest.Get<Car>("car");
-                foreach (var item in places)
+                List<Car> cars = rest.Get<Car>("car");
+                foreach (var item in cars)
                 {
                     Console.WriteLine(item.Id + ": " + item.Plate+"-"+item.Brand);
                 }
             }
             else if (entity == "Driver")
             {
-                List<Driver> disches = rest.Get<Driver>("driver");
-                foreach (var item in disches)
+                List<Driver> drivers = rest.Get<Driver>("driver");
+                foreach (var item in drivers)
                 {
                     Console.WriteLine(item.Id + ": " + item.Name + "-" + item.Distance);
+                }
+            }
+
+            else if (entity == "SiteNonA")
+            {
+                Console.WriteLine("Enter the sight's Id");
+                int id = int.Parse(Console.ReadLine());
+                List<Car> cars = rest.Get<Car>($"SiteNon/CarsInSite?id={id}");
+                foreach (var item in cars)
+                {
+                    Console.WriteLine(item.Id + ": " + item.Plate + "-" + item.Brand);
+                }
+            }
+            else if (entity == "SiteNonB")
+            {
+                Console.WriteLine("Enter the sight's Id");
+                int id = int.Parse(Console.ReadLine());
+                List<Driver> cars = rest.Get<Driver>($"SiteNon/DriverInSite?id={id}");
+                foreach (var item in cars)
+                {
+                    Console.WriteLine(item.Id + ": " + item.Name + "-" + item.Distance+"Km");
+                }
+            }
+            else if (entity == "CarNonA")
+            {
+                Console.WriteLine("Enter the weith");
+                int id = int.Parse(Console.ReadLine());
+                List<Car> cars = rest.Get<Car>($"CarNon/CarsOverTW?weith={id}");
+                foreach (var item in cars)
+                {
+                    Console.WriteLine(item.Id + ": " + item.Plate + "-" + item.Brand);
+                }
+            }
+            else if (entity == "CarNonB")
+            {
+                Console.WriteLine("Enter the brand");
+                string id = Console.ReadLine();
+                List<Car> cars = rest.Get<Car>($"CarNon/GetBrands?brand={id}");
+                foreach (var item in cars)
+                {
+                    Console.WriteLine(item.Id + ": " + item.Plate + "-" + item.Brand);
+                }
+            }
+            else if (entity == "DrivNon")
+            {
+                Console.WriteLine("Enter the distance");
+                int id = int.Parse(Console.ReadLine());
+                List<Driver> cars = rest.Get<Driver>($"DriverNon/DriversOverValue?value={id}");
+                foreach (var item in cars)
+                {
+                    Console.WriteLine(item.Id + ": " + item.Name + "-" + item.Distance + "Km");
                 }
             }
             Console.ReadLine();

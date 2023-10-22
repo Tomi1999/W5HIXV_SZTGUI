@@ -226,15 +226,6 @@ namespace W5HIXV_HFT_2023241.Test
                 }
             }
         }
-        [Test]
-        public void UpdateMethodTest() 
-        {
-            
-
-            
-            ;
-
-        }
-    
+       
     }
 }

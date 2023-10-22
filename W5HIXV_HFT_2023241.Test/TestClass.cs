@@ -214,7 +214,7 @@ namespace W5HIXV_HFT_2023241.Test
             }.AsQueryable());
             driverLogic = new DriverLogic(driverMock.Object);
         }
-
+        //1
         [Test]
         public void CreateMethodTest()
         {
@@ -229,6 +229,7 @@ namespace W5HIXV_HFT_2023241.Test
                 }
             }
         }
+        //2
         [Test]
         public void FirstNonCrudMethod()
         {
@@ -240,10 +241,46 @@ namespace W5HIXV_HFT_2023241.Test
             }
             
         }
+        //3
         [Test]
         public void SecondNonCrudMethod()
         {
-            
+            var citytest = this.siteLogic.SiteInCity("Budapest");
+            foreach (var item in citytest)
+            {
+                Assert.That(item.City == "Budapest");
+            }
+            ;
+        }
+        //4
+        [Test]
+        public void CarNonCrud()
+        {
+            var cars = this.carLogic.GetBrands("MAN");
+            foreach (var item in cars)
+            {
+                Assert.That(item.Brand == "MAN");
+            }
+        }
+        //5
+        [Test]
+        public void CarNonCrudT()
+        {
+            var weith = this.carLogic.CarsOverTW(3542);
+            foreach (var item in weith)
+            {
+                Assert.That(item.Total_Weith > 3542);
+            }
+        }
+        //6
+        [Test]
+        public void DriverNonC()
+        {
+            var drivers = this.driverLogic.DriversOverValue(2567);
+            foreach (var item in drivers)
+            {
+                Assert.That(item.Distance > 2567);
+            }
             ;
         }
     }

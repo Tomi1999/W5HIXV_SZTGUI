@@ -283,5 +283,67 @@ namespace W5HIXV_HFT_2023241.Test
             }
             ;
         }
+        //7
+        [Test]
+        public void BrandTestTwo()
+        {
+            var cars = this.carLogic.GetBrands("alma");
+            Assert.IsEmpty(cars);
+
+        }
+        //8
+        [Test]
+        public void ReadAllTest()
+        {
+            var sites = this.siteLogic.ReadAll();
+            var elements = new List<Site>()
+            {
+               new Site()
+               {
+                    Id = 1,
+                    Size = "Big",
+                    Address = "Budapest, Europa u. 6, 1239",
+                    City = "Budapest"
+
+               },
+               new Site()
+               {
+                    Id = 2,
+                    Size = "Medium",
+                    Address = "Budapest, Nagykorösi út 351, 1239",
+                    City = "Budapest"
+
+               },
+               new Site()
+               {
+                    Id = 3,
+                    Size = "Smal",
+                    Address = "Budapest, Könyves Kálmán krt. 13, 1097",
+                    City = "Budapest"
+
+               } 
+            };
+
+            foreach (var item in sites)
+            {
+                Assert.That(item.Address == elements.Where(t=>t.Id == item.Id).First().Address);
+            }
+        }
+        //9
+        [Test]
+        public void TestNine()
+        {
+            var item = this.siteLogic.Read(15);
+            Assert.IsNull(item);
+            
+        }
+        //10
+        [Test]
+        public void TestTen()
+        {
+            var item = this.siteLogic.SiteInCity("Szeged");
+            Assert.IsEmpty(item);
+        }
+    
     }
 }

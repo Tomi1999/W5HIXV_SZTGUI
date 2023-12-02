@@ -283,7 +283,7 @@ namespace W5HIXV_HFT_2023241.Client
         }
         static void Main(string[] args)
         {
-            rest = new RestService("http://localhost:55762/", "swagger");
+            rest = new RestService("http://localhost:5000/", "swagger");
             var SiteMenu = new ConsoleMenu(args, level: 1)
                .Add("List", () => List("Site"))
                .Add("Create", () => Create("Site"))

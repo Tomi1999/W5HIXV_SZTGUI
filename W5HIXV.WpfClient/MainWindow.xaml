@@ -10,16 +10,8 @@
         <local:MainWindowViewModel/>
     </Window.DataContext>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Cars}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding Plate}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <Button Content="Car" HorizontalAlignment="Left" Margin="31,48,0,0" VerticalAlignment="Top" Height="81" Width="181" FontSize="22"/>
+        <Button Content="Driver" HorizontalAlignment="Left" Margin="31,150,0,0" VerticalAlignment="Top" Height="81" Width="181" FontSize="22"/>
+        <Button Content="Site" HorizontalAlignment="Left" Margin="31,255,0,0" VerticalAlignment="Top" Height="81" Width="181" FontSize="22"/>
     </Grid>
 </Window>

@@ -10,15 +10,9 @@ namespace W5HIXV.WpfClient
 {
     public class MainWindowViewModel
     {
-
-        public ICommand CreateCarCommand { get; set; }  
-        public ICommand DeleteCarCommand { get; set; }  
-        public ICommand UpdateCarCommand { get; set; }  
-        public RestCollection<Car> Cars { get; set; }
-        public MainWindowViewModel()
-        {
-            List<string> models = new List<string>() {"Car", "Driver", "Site" };
-            Cars = new RestCollection<Car>("http://localhost:55762/", "car");
-        }
+        public ICommand OpenCarCommand { get; set; }  
+        public ICommand OpenDriverCommand { get; set; }  
+        public ICommand OpenSiteCommand { get; set; }  
+        
     }
 }

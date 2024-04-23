@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="CarWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="List All" HorizontalAlignment="Left" Margin="34,44,0,0" VerticalAlignment="Top" Height="72" Width="157" FontSize="20"/>
+        <Button Content="Create" HorizontalAlignment="Left" Margin="34,121,0,0" VerticalAlignment="Top" Height="72" Width="157" FontSize="20"/>
+        <Button Content="Read" HorizontalAlignment="Left" Margin="34,198,0,0" VerticalAlignment="Top" Height="72" Width="157" FontSize="20"/>
+        <Button Content="Update" HorizontalAlignment="Left" Margin="34,275,0,0" VerticalAlignment="Top" Height="72" Width="157" FontSize="20"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="34,352,0,0" VerticalAlignment="Top" Height="72" Width="157" FontSize="20"/>
+
     </Grid>
 </Window>

@@ -10,8 +10,11 @@
         <local:MainWindowViewModel/>
     </Window.DataContext>
     <Grid>
-        <Button Content="Car" HorizontalAlignment="Left" Margin="31,48,0,0" VerticalAlignment="Top" Height="81" Width="181" FontSize="22"/>
-        <Button Content="Driver" HorizontalAlignment="Left" Margin="31,150,0,0" VerticalAlignment="Top" Height="81" Width="181" FontSize="22"/>
-        <Button Content="Site" HorizontalAlignment="Left" Margin="31,255,0,0" VerticalAlignment="Top" Height="81" Width="181" FontSize="22"/>
+        <Button Content="Car" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Height="96" Width="379" FontSize="22" Command="{Binding OpenCarCommand}"/>
+        <Button Content="Driver" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="96" Width="379" FontSize="22" Command="{Binding OpenDriverCommand}"/>
+        <Button Content="Site" HorizontalAlignment="Left" Margin="10,291,0,0" VerticalAlignment="Top" Height="96" Width="379" FontSize="22" Command="{Binding OpenSiteCommand}"/>
+        <Button Content="DriverNonCrud" HorizontalAlignment="Left" Margin="411,0,0,0" VerticalAlignment="Center" Height="96" Width="379" FontSize="22" />
+        <Button Content="CarNonCrud" HorizontalAlignment="Left" Margin="411,41,0,0" VerticalAlignment="Top" Height="96" Width="379" FontSize="22"/>
+        <Button Content="SiteNonCrud" HorizontalAlignment="Left" Margin="411,291,0,0" VerticalAlignment="Top" Height="96" Width="379" FontSize="22" />
     </Grid>
 </Window>

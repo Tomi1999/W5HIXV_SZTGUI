@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace W5HIXV.WpfClient
 {
     /// <summary>
-    /// Interaction logic for Car.xaml
+    /// Interaction logic for CarWindow.xaml
     /// </summary>
-    public partial class Car : Window
+    public partial class CarWindow : Window
     {
-        public Car()
+        public CarWindow()
         {
             InitializeComponent();
         }

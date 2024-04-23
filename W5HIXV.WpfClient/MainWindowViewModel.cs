@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Toolkit.Mvvm.Input;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,20 @@ namespace W5HIXV.WpfClient
     {
         public ICommand OpenCarCommand { get; set; }  
         public ICommand OpenDriverCommand { get; set; }  
-        public ICommand OpenSiteCommand { get; set; }  
+        public ICommand OpenSiteCommand { get; set; }
+
+        private CarWindow cw;
+        public MainWindowViewModel()
+        {
+            OpenCarCommand = new RelayCommand(() => {
+                cw = new CarWindow();
+                cw.Show();
+            }
+        );
+
+        }
+
         
+       
     }
 }

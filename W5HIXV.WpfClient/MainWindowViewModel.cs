@@ -14,15 +14,27 @@ namespace W5HIXV.WpfClient
         public ICommand OpenCarCommand { get; set; }  
         public ICommand OpenDriverCommand { get; set; }  
         public ICommand OpenSiteCommand { get; set; }
+        public ICommand OpenCarNonCommand { get; set; }
+        public ICommand OpenDriverNonCommand { get; set; }
+        public ICommand OpenSiteNonCommand { get; set; }
 
         private CarWindow cw;
+        private DriverWindow driverWindow;
+        private SiteWindow siteWindow;
         public MainWindowViewModel()
         {
             OpenCarCommand = new RelayCommand(() => {
                 cw = new CarWindow();
                 cw.Show();
-            }
-        );
+            });
+            OpenDriverCommand = new RelayCommand(() => {
+                driverWindow = new DriverWindow();
+                driverWindow.Show();
+            });
+            OpenSiteCommand = new RelayCommand(() => {
+                siteWindow = new SiteWindow();
+                siteWindow.Show();
+            });
 
         }
 

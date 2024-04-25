@@ -25,6 +25,7 @@ namespace W5HIXV.WpfClient
             InitializeComponent();
             cw = new CarwinowViewModel();
             this.Content = cw.Grid;
+
         }
     }
 }

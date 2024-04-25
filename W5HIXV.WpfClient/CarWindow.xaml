@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:W5HIXV.WpfClient"
         mc:Ignorable="d"
         Title="CarWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:CarwinowViewModel/>
+    </Window.DataContext>
     <Grid>
+        
         <Button Content="List All" HorizontalAlignment="Left" Margin="34,44,0,0" VerticalAlignment="Top" Height="72" Width="157" FontSize="20" Command="{Binding ListAllCar}"/>
         <Button Content="Create" HorizontalAlignment="Left" Margin="34,121,0,0" VerticalAlignment="Top" Height="72" Width="157" FontSize="20" Command="{Binding CreateCar}"/>
         <Button Content="Read" HorizontalAlignment="Left" Margin="34,198,0,0" VerticalAlignment="Top" Height="72" Width="157" FontSize="20" Command="{Binding ReadCar}"/>

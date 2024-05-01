@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using W5HIXV_HFT_2023241.Endpoint.Services;
 using W5HIXV_HFT_2023241.Logic;
 using W5HIXV_HFT_2023241.Models;
 using W5HIXV_HFT_2023241.Repository;
@@ -43,6 +44,8 @@ namespace w5hixv_HFT_2023241.Endpoint
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "W5HIXV_HFT_2023241.Endpoint", Version = "v1" });
             });
+
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,6 +65,7 @@ namespace w5hixv_HFT_2023241.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }

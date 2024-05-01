@@ -25,7 +25,7 @@
             <Label Content="Name" Background="Coral" Padding="10" Margin="10, 10, 10, 0"/>
             <TextBox Text="{Binding SelectedDriver.Name}" Padding="10" Margin="10, 0, 10, 0"/>
             <Label Content="Distance" Background="Coral" Padding="10" Margin="10, 0, 10, 0"/>
-            <TextBox Text="{Binding SelectedDriver.Distance}" Padding="10" Margin="10, 0, 10, 0"/>
+            <TextBox Text="{Binding SelectedDriver.Distance}" Padding="10" Margin="10, 0, 10, 20"/>
 
             <Button Content="Create Site" Command="{Binding CreateDriverCommand}" Margin="10" Padding="10"/>
             <Button Content="Update Site" Command="{Binding UpdateDriverCommand}" Margin="10" Padding="10"/>

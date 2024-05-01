@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace W5HIXV_HFT_2023241.Repository
@@ -16,6 +17,7 @@ namespace W5HIXV_HFT_2023241.Repository
         public void Create(T item)
         {
             ctx.Add(item);
+            Thread.Sleep(1000);
             ctx.SaveChanges();
         }
 

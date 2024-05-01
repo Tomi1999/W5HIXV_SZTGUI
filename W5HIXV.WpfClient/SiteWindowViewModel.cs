@@ -40,7 +40,15 @@ namespace W5HIXV.WpfClient
             {
                 if (value != null)
                 {
-                    selectedSite = value;
+                    selectedSite = new Site()
+                    {
+                        Id = value.Id,
+                        Address = value.Address,
+                        Size = value.Size,
+                        City = value.City,
+                        Drivers = value.Drivers,
+                        Cars = value.Cars
+                    };
                     OnPropertyChanged();
                     (DeleteSiteCommand as RelayCommand).NotifyCanExecuteChanged();
                 }

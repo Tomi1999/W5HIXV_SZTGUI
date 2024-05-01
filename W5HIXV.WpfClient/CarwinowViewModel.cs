@@ -37,6 +37,7 @@ namespace W5HIXV.WpfClient
                     selectedCar = value;
                     OnPropertyChanged();
                     (DeleteCarCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (UpdateCarCommand as RelayCommand).NotifyCanExecuteChanged();
                 }
             }
         }
@@ -85,7 +86,13 @@ namespace W5HIXV.WpfClient
                 );
                 UpdateCarCommand = new RelayCommand(() =>
                 {
-                    Cars.Update(SelectedCar);
+                    Car carNew = selectedCar;
+                    Cars.Delete(selectedCar.Id);
+                    Cars.Add(carNew);
+                },
+                () =>
+                {
+                    return SelectedCar != null;
                 });
             }
         }

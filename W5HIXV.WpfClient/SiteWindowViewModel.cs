@@ -51,6 +51,7 @@ namespace W5HIXV.WpfClient
                     };
                     OnPropertyChanged();
                     (DeleteSiteCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (UpdateSiteCommand as RelayCommand).NotifyCanExecuteChanged();
                 }
             }
         }
@@ -89,7 +90,13 @@ namespace W5HIXV.WpfClient
                 );
                 UpdateSiteCommand = new RelayCommand(() =>
                 {
-                    Sites.Update(SelectedSite);
+                    Site driver = selectedSite;
+                    Sites.Delete(SelectedSite.Id);
+                    Sites.Add(driver);
+                },
+                () =>
+                {
+                    return SelectedSite != null;
                 });
             }
             

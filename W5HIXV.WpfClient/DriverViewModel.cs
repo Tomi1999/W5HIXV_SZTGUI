@@ -35,6 +35,7 @@ namespace W5HIXV.WpfClient
                     selectedDriver = value;
                     OnPropertyChanged();
                     (DeleteDriverCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (UpdateDriverCommand as RelayCommand).NotifyCanExecuteChanged();
                 }
             }
         }
@@ -80,7 +81,13 @@ namespace W5HIXV.WpfClient
                 );
                 UpdateDriverCommand = new RelayCommand(() =>
                 {
-                    Drivers.Update(SelectedDriver);
+                    Driver driver = selectedDriver;
+                    Drivers.Delete(SelectedDriver.Id);
+                    Drivers.Add(driver);
+                },
+                () =>
+                {
+                    return SelectedDriver != null;
                 });
             }
         }

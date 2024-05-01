@@ -17,7 +17,7 @@ namespace W5HIXV_HFT_2023241.Repository
         public void Create(T item)
         {
             ctx.Add(item);
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             ctx.SaveChanges();
         }
 

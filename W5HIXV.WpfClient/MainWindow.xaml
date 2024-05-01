@@ -10,11 +10,20 @@
         <local:MainWindowViewModel/>
     </Window.DataContext>
     <Grid>
-        <Button Content="Car" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Height="96" Width="379" FontSize="22" Command="{Binding OpenCarCommand}"/>
-        <Button Content="Driver" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="96" Width="379" FontSize="22" Command="{Binding OpenDriverCommand}"/>
-        <Button Content="Site" HorizontalAlignment="Left" Margin="10,291,0,0" VerticalAlignment="Top" Height="96" Width="379" FontSize="22" Command="{Binding OpenSiteCommand}"/>
-        <Button Content="DriverNonCrud" HorizontalAlignment="Left" Margin="411,0,0,0" VerticalAlignment="Center" Height="96" Width="379" FontSize="22" />
-        <Button Content="CarNonCrud" HorizontalAlignment="Left" Margin="411,41,0,0" VerticalAlignment="Top" Height="96" Width="379" FontSize="22"/>
-        <Button Content="SiteNonCrud" HorizontalAlignment="Left" Margin="411,291,0,0" VerticalAlignment="Top" Height="96" Width="379" FontSize="22" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Button Content="Car" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Height="96" Width="379" FontSize="22" Command="{Binding OpenCarCommand}" Grid.Column="0" Grid.Row="0"/>
+        <Button Content="Driver" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="96" Width="379" FontSize="22" Command="{Binding OpenDriverCommand}"  Grid.Column="0" Grid.Row="1"/>
+        <Button Content="Site" HorizontalAlignment="Center" VerticalAlignment="Center" Height="96" Width="379" FontSize="22" Command="{Binding OpenSiteCommand}" Grid.Row="2"/>
+        <Button Content="DriverNonCrud" HorizontalAlignment="Center" Margin="0,41,0,0" VerticalAlignment="Top" Height="96" Width="379" FontSize="22"  Grid.Column="1" Grid.Row="0"/>
+        <Button Content="CarNonCrud" HorizontalAlignment="Center" VerticalAlignment="Center" Height="96" Width="379" FontSize="22"  Grid.Column="1" Grid.Row="1"/>
+        <Button Content="SiteNonCrud" HorizontalAlignment="Center" VerticalAlignment="Center" Height="96" Width="380" FontSize="22" Grid.Column="1" Grid.Row="2" />
     </Grid>
 </Window>

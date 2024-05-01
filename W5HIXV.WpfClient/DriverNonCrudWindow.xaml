@@ -25,9 +25,9 @@
             <Label Content="Name" Background="Coral" Padding="10" Margin="10, 10, 10, 0"/>
             <TextBlock Text="{Binding SelectedDriver.Name}" Padding="10" Margin="10, 0, 10, 0"/>
             <Label Content="Distance" Background="Coral" Padding="10" Margin="10, 0, 10, 0"/>
-            <TextBlock Text="{Binding SelectedDriver.Distance}" Padding="10" Margin="10, 0, 10, 20"/>
+            <TextBlock Text="{Binding SelectedDriver.Distance}" Padding="10" Margin="10, 0, 10, 0"/>
             <Label Content="Give distance here" Background="Coral" Padding="10" Margin="10, 0, 10, 0"/>
-            <TextBox Text="{Binding }" Padding="10" Margin="10, 0, 10, 20"/>
+            <TextBox Text="{Binding DistanceValue}" Padding="10" Margin="10, 0, 10, 20"/>
 
 
             <Button Content="List Over Value" Command="{Binding ListtDriverCommand}" Margin="10" Padding="10"/>

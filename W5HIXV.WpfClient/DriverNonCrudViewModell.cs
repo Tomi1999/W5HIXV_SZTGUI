@@ -39,7 +39,10 @@ namespace W5HIXV.WpfClient
 
         public string DistanceValue
         {
-            get { return distanceValue; }
+            get 
+            {
+                return distanceValue; 
+            }
 
             set
             {
@@ -47,8 +50,7 @@ namespace W5HIXV.WpfClient
                 {
                     distanceValue = value;
                     OnPropertyChanged();
-                    (ListtDriverCommand as RelayCommand).NotifyCanExecuteChanged();
-                } 
+                }
             }
         }
 
@@ -66,15 +68,12 @@ namespace W5HIXV.WpfClient
         {
             if (!IsInDesignMode)
             {
-                Drivers = new RestCollection<Driver>("http://localhost:55762/", "DriverNon");
+                
                 ListtDriverCommand = new RelayCommand(() =>
                 {
-                   //Drivers
-                },
-                () =>
-                {
-                    return DistanceValue != null;
-                });
+                    Drivers = new RestCollection<Driver>("http://localhost:55762/", $"DriverNon/DriversOverValue?value={distanceValue}");
+                }
+                );
             }
         }
     }

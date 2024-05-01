@@ -60,7 +60,7 @@ namespace W5HIXV.WpfClient
         {
             if (!IsInDesignMode) 
             {
-                Cars = new RestCollection<Car>("http://localhost:55762/", "car");
+                Cars = new RestCollection<Car>("http://localhost:55762/", "Car");
                 CreateCarCommand = new RelayCommand(() =>
                 {
                     int id = Cars.Max(t=>t.Id);

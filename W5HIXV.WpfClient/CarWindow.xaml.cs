@@ -19,13 +19,9 @@ namespace W5HIXV.WpfClient
     /// </summary>
     public partial class CarWindow : Window
     {
-        private CarwinowViewModel cw;
         public CarWindow()
         {
             InitializeComponent();
-            cw = new CarwinowViewModel();
-            this.Content = cw.Grid;
-
         }
     }
 }

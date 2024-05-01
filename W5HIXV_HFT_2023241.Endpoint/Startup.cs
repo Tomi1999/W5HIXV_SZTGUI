@@ -41,7 +41,7 @@ namespace w5hixv_HFT_2023241.Endpoint
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "w5hixv_HFT_2023241.Endpoint", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "W5HIXV_HFT_2023241.Endpoint", Version = "v1" });
             });
         }
 
@@ -52,7 +52,7 @@ namespace w5hixv_HFT_2023241.Endpoint
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "w5hixv_HFT_2023241.Endpoint v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "W5HIXV_HFT_2023241.Endpoint v1"));
             }
 
             app.UseRouting();

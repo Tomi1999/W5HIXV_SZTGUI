@@ -10,7 +10,28 @@
         <local:CarwinowViewModel/>
     </Window.DataContext>
     <Grid>
-      
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Plate}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1" >
+            <Label Content="Plate" Background="Coral" Padding="10" Margin="10, 10, 10, 0"/>
+            <TextBox Text="{Binding SelectedCar.Plate}" Padding="10" Margin="10, 0, 10, 0"/>
+            <Label Content="Brand" Background="Coral" Padding="10" Margin="10, 0, 10, 0"/>
+            <TextBox Text="{Binding SelectedCar.Brand}" Padding="10" Margin="10, 0, 10, 0"/>
+            <Label Content="Total Weith" Background="Coral" Padding="10" Margin="10, 0, 10, 0"/>
+            <TextBox Text="{Binding SelectedCar.Total_Weith}" Padding="10" Margin="10, 0, 10, 10"/>
+            
+            <Button Content="Create Car" Command="{Binding CreateCarCommand}" Margin="10" Padding="10"/>
+            <Button Content="Update Car" Command="{Binding UpdateCarCommand}" Margin="10" Padding="10"/>
+            <Button Content="Delete Car" Command="{Binding DeleteCarCommand}" Margin="10" Padding="10"/>
+        </StackPanel>
     </Grid>
 </Window>

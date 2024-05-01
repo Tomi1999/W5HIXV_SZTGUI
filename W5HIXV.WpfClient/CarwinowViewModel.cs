@@ -60,17 +60,18 @@ namespace W5HIXV.WpfClient
         {
             if (!IsInDesignMode) 
             {
-                Cars = new RestCollection<Car>("http://localhost:55762/", "Car");
+                Cars = new RestCollection<Car>("http://localhost:55762/", "car");
                 CreateCarCommand = new RelayCommand(() =>
                 {
-                    int id = Cars.Last().Id;
-                    //Cars.Add(new Car()
-                    //{
-                    //    Id = id + 1,
-                    //    Plate = Text_Plate., 
-                    //    Brand = SelectedCar.Brand, 
-                    //    Total_Weith = SelectedCar.Total_Weith,
-                    //});
+                    int id = Cars.Max(t=>t.Id);
+                    Cars.Add(new Car()
+                    {
+                        Id = id + 1,
+                        Plate = SelectedCar.Plate,
+                        Brand = SelectedCar.Brand,
+                        Total_Weith = SelectedCar.Total_Weith,
+
+                    });
                 }
                 );
                 DeleteCarCommand = new RelayCommand(() =>
@@ -84,14 +85,7 @@ namespace W5HIXV.WpfClient
                 );
                 UpdateCarCommand = new RelayCommand(() =>
                 {
-                    try
-                    {
-                        Cars.Update(SelectedCar);
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        ErrorMessage = ex.Message;
-                    }
+                    Cars.Update(SelectedCar);
                 });
             }
         }

@@ -22,6 +22,14 @@ namespace W5HIXV.WpfClient
             set { selectedDriver = value; }
         }
 
+        private string distance;
+
+        public string Distance
+        {
+            get { return distance; }
+            set { distance = value; }
+        }
+
         public static bool IsInDesignMode
         {
             get

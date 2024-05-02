@@ -21,5 +21,14 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <StackPanel Grid.Column="1">
+            <Label Content="Name" Background="Coral" Padding="10" Margin="10, 10, 10, 0"/>
+            <TextBlock Text="{Binding SelectedDriver.Name}" Padding="10" Margin="10, 10, 10, 0"/>
+            <Label Content="Distance" Background="Coral" Padding="10" Margin="10, 10, 10, 0"/>
+            <TextBlock Text="{Binding SelectedDriver.Distance}" Padding="10" Margin="10, 10, 10, 20"/>
+            <Label Content="Enter Value" Background="Coral" Padding="10" Margin="10, 10, 10, 0"/>
+            <TextBlock Text="{Binding Distance}" Padding="10" Margin="10, 10, 10, 0"/>
+            <Button Content="Get Drivers" Padding="10" Margin="10, 10, 10, 0"/>
+        </StackPanel>
     </Grid>
 </Window>

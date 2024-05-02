@@ -14,7 +14,7 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Drivers}" SelectedItem="{Binding SelectedDriver}">
+        <ListBox ItemsSource="{Binding DriversNon}" SelectedItem="{Binding SelectedDriver}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Name}"/>
@@ -27,8 +27,8 @@
             <Label Content="Distance" Background="Coral" Padding="10" Margin="10, 10, 10, 0"/>
             <TextBlock Text="{Binding SelectedDriver.Distance}" Padding="10" Margin="10, 10, 10, 20"/>
             <Label Content="Enter Value" Background="Coral" Padding="10" Margin="10, 10, 10, 0"/>
-            <TextBlock Text="{Binding Distance}" Padding="10" Margin="10, 10, 10, 0"/>
-            <Button Content="Get Drivers" Padding="10" Margin="10, 10, 10, 0"/>
+            <TextBox Text="{Binding Distance}" Padding="10" Margin="10, 10, 10, 0"/>
+            <Button Content="List all" Padding="10" Margin="10, 10, 10, 0" Command="{Binding ListDriversOver}"/>
         </StackPanel>
     </Grid>
 </Window>

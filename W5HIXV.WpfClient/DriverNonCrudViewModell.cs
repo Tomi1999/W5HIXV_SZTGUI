@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using W5HIXV_HFT_2023241.Models;
 
 namespace W5HIXV.WpfClient
@@ -13,13 +15,22 @@ namespace W5HIXV.WpfClient
     public class DriverNonCrudViewModell : ObservableRecipient
     {
         public RestCollection<Driver> Drivers { get; set; }
+        public DriverRestCollection<Driver> DriversNon { get; set; }
 
         private Driver selectedDriver;
 
         public Driver SelectedDriver
         {
             get { return selectedDriver; }
-            set { selectedDriver = value; }
+            set 
+            {
+                if (value != null)
+                {
+                    selectedDriver = value;
+                    OnPropertyChanged();
+
+                }
+            }
         }
 
         private string distance;
@@ -27,9 +38,18 @@ namespace W5HIXV.WpfClient
         public string Distance
         {
             get { return distance; }
-            set { distance = value; }
+            set 
+            {
+                if (value != null)
+                {
+                    distance = value;
+                    OnPropertyChanged();
+                   
+                }
+            }
         }
 
+        public ICommand ListDriversOver { get; set; }
         public static bool IsInDesignMode
         {
             get
@@ -41,9 +61,13 @@ namespace W5HIXV.WpfClient
 
         public DriverNonCrudViewModell()
         {
+            
             if (!IsInDesignMode)
             {
-
+                ListDriversOver = new RelayCommand(() =>
+                {
+                    Drivers = new RestCollection<Driver>("http://localhost:55762/", "DriverNon/DriversOverValue?value=" + Distance);
+                });
             }
         }
     }

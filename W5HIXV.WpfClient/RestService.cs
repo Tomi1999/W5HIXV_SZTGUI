@@ -9,6 +9,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
+using W5HIXV_HFT_2023241.Models;
 
 namespace W5HIXV.WpfClient
 {
@@ -280,11 +282,10 @@ namespace W5HIXV.WpfClient
         public event NotifyCollectionChangedEventHandler? CollectionChanged;
 
         NotifyService notify;
-        RestService rest;
-        List<T> items;
+        protected RestService rest;
+        protected List<T> items;
         bool hasSignalR;
         Type type = typeof(T);
-
         public RestCollection(string baseurl, string endpoint, string hub = null)
         {
             hasSignalR = hub != null;
@@ -319,6 +320,7 @@ namespace W5HIXV.WpfClient
                 this.notify.Init();
             }
             Init();
+
         }
 
         private async Task Init()
@@ -387,7 +389,7 @@ namespace W5HIXV.WpfClient
                 });
             }
         }
-
+       
         public void Delete(int id)
         {
             if (hasSignalR)
@@ -409,7 +411,16 @@ namespace W5HIXV.WpfClient
             }
 
         }
-
-
     }
+    public class DriverRestCollection<Driver> : RestCollection<Driver>
+    {
+        public DriverRestCollection(string baseurl, string endpoint, string hub = null) : base(baseurl, endpoint, hub)
+        {
+        }
+       public void GetAllElementr(string value)
+       {
+            items = rest.Get<Driver>("DriversOverValue?value=" + value);
+       }
+    }
+
 }

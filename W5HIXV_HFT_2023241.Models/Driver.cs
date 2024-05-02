@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace W5HIXV_HFT_2023241.Models
 {
     [Table("Drivers")]
-    public class Driver
+    public class Driver :IComparable<Driver>
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -25,6 +25,23 @@ namespace W5HIXV_HFT_2023241.Models
 
         [JsonIgnore]
         [NotMapped]
-        public virtual Site Site { get; set; }  
+        public virtual Site Site { get; set; }
+
+        public int CompareTo(int i)
+        {
+            if (this.Distance > i)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public int CompareTo(Driver other)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

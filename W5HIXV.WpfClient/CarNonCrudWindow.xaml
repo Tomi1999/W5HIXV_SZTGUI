@@ -30,8 +30,8 @@
             <TextBlock Text="{Binding SelectedCar.Total_Weith}" Padding="10" Margin="10, 0, 10, 0"/>
             <Label Content="Enter NonCrud Value" Background="Coral" Padding="10" Margin="10, 0, 10, 0"/>
             <TextBox Text="{Binding NonCrudValue}" Padding="10" Margin="10, 0, 10, 0"/>
-            <Button Content="Get Brand" Command="{Binding CreateCarCommand}" Margin="10,0,10,0" Padding="10"/>
-            <Button Content="Get Cars Over Total Weith" Command="{Binding UpdateCarCommand}" Margin="10" Padding="10"/>
+            <Button Content="Get Brand" Command="{Binding GetBrandsCommand}" Margin="10,0,10,0" Padding="10"/>
+            <Button Content="Get Cars Over Total Weith" Command="{Binding OverTWCommand}" Margin="10" Padding="10"/>
         </StackPanel>
     </Grid>
 </Window>

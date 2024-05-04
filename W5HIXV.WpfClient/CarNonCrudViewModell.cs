@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using W5HIXV_HFT_2023241.Models;
 
 namespace W5HIXV.WpfClient
@@ -58,6 +59,10 @@ namespace W5HIXV.WpfClient
                 return (bool)DependencyPropertyDescriptor.FromProperty(prop, typeof(FrameworkElement)).Metadata.DefaultValue;
             }
         }
+
+        public ICommand GetBrandsCommand { get; set; }
+
+        public ICommand OverTWCommand { get; set; }
         public CarNonCrudViewModell()
         {
             if (!IsInDesignMode)

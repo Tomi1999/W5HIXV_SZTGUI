@@ -28,7 +28,7 @@
             <TextBlock Text="{Binding SelectedDriver.Distance}" Padding="10" Margin="10, 10, 10, 20"/>
             <Label Content="Enter Value" Background="Coral" Padding="10" Margin="10, 10, 10, 0"/>
             <TextBox Text="{Binding Distance}" Padding="10" Margin="10, 10, 10, 0"/>
-            <Button Content="List all" Padding="10" Margin="10, 10, 10, 0" Command="{Binding GetBrandsCommand}"/>
+            <Button Content="List all" Padding="10" Margin="10, 10, 10, 0" Command="{Binding ListDriversOver}"/>
         </StackPanel>
     </Grid>
 </Window>

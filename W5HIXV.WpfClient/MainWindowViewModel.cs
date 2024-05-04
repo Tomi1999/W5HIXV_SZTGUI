@@ -22,7 +22,8 @@ namespace W5HIXV.WpfClient
         private DriverWindow driverWindow;
         private SiteWindow siteWindow;
         private DriverNonCrudWindow dnonCrudWindow;
-        
+        private CarNonCrudWindow cnonWindow;
+
         public MainWindowViewModel()
         {
             OpenCarCommand = new RelayCommand(() => {
@@ -42,7 +43,11 @@ namespace W5HIXV.WpfClient
                 dnonCrudWindow = new DriverNonCrudWindow(); 
                 dnonCrudWindow.Show();
             });
-
+            OpenCarNonCommand = new RelayCommand(() =>
+            {
+                cnonWindow = new CarNonCrudWindow();
+                cnonWindow.Show();
+            });
         }
 
         

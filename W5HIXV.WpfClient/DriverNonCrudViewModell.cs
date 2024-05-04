@@ -14,6 +14,7 @@ namespace W5HIXV.WpfClient
 {
     public class DriverNonCrudViewModell : ObservableRecipient
     {
+        JSonDownloader downloader = new JSonDownloader("http://localhost:55762/");
         public RestCollection<Driver> DriversNon { get; set; }
 
         private Driver selectedDriver;

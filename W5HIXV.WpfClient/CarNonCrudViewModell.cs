@@ -4,16 +4,24 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using W5HIXV_HFT_2023241.Models;
+using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace W5HIXV.WpfClient
 {
     public class CarNonCrudViewModell : ObservableRecipient
     {
+        JSonDownloader downloader = new JSonDownloader("http://localhost:55762/");
+
 
         private string errorMessage;
 
@@ -23,8 +31,16 @@ namespace W5HIXV.WpfClient
             set { SetProperty(ref errorMessage, value); }
         }
         private string nonCrudValue;
-
-		public string NonCrudValue
+        public List<Car> Cars
+        {
+            get { return cars; }
+            set
+            {
+                cars = value;
+                OnPropertyChanged(nameof(Cars));
+            }
+        }
+        public string NonCrudValue
         {
 			get { return nonCrudValue; }
 			set
@@ -37,6 +53,8 @@ namespace W5HIXV.WpfClient
                 }
             }
 		}
+        private List<Car> cars { get; set; }
+
         private Car selectedCar;
 
         public Car SelectedCar
@@ -63,12 +81,26 @@ namespace W5HIXV.WpfClient
         public ICommand GetBrandsCommand { get; set; }
 
         public ICommand OverTWCommand { get; set; }
+
         public CarNonCrudViewModell()
         {
             if (!IsInDesignMode)
             {
+                
+                GetBrandsCommand = new RelayCommand(async () =>
+                {
+                    var downloadedCars = await downloader.Download<Car>("CarNon/GetBrands?brand="+NonCrudValue);
+                    Cars = downloadedCars;
+                });
+                OverTWCommand = new RelayCommand(async () =>
+                {
+                    var downloadedCars = await downloader.Download<Car>("CarNon/CarsOverTW?weith=" + NonCrudValue);
+                    Cars = downloadedCars;
 
+                });
             }  
         }
     }
+
+    
 }

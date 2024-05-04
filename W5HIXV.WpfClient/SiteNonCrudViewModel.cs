@@ -1,12 +1,97 @@
-﻿using System;
+﻿using Microsoft.Toolkit.Mvvm.Input;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using System.Windows;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+using W5HIXV_HFT_2023241.Models;
 
 namespace W5HIXV.WpfClient
 {
-    public class SiteNonCrudViewModel
+    public class SiteNonCrudViewModel : ObservableRecipient
     {
+        private JSonDownloader downloader = new JSonDownloader("http://localhost:55762/");
+
+        private string errorMessage;
+
+        public string ErrorMessage
+        {
+            get { return errorMessage; }
+            set { SetProperty(ref errorMessage, value); }
+        }
+        public static bool IsInDesignMode
+        {
+            get
+            {
+                var prop = DesignerProperties.IsInDesignModeProperty;
+                return (bool)DependencyPropertyDescriptor.FromProperty(prop, typeof(FrameworkElement)).Metadata.DefaultValue;
+            }
+        }
+        private List<Driver> sites;
+
+        public List<Driver> Sites
+        {
+            get { return sites; }
+            set
+            {
+                sites = value;
+                OnPropertyChanged(nameof(Sites));
+            }
+        }
+
+        private string nonCrudValue;
+
+        public string NonCrudValue
+        {
+            get { return nonCrudValue; }
+            set { nonCrudValue = value; }
+        }
+
+        private Site selectedSite;
+
+        public Site SelectedSite
+        {
+            get { return selectedSite; }
+            set
+            {
+                if (value != null)
+                {
+                    selectedSite = new Site()
+                    {
+                        Id = value.Id,
+                        Address = value.Address,
+                        Size = value.Size,
+                        City = value.City,
+                        Drivers = value.Drivers,
+                        Cars = value.Cars
+                    };
+                    OnPropertyChanged();
+                   
+                }
+            }
+        }
+        public ICommand SitesSizeCommand { get; set; }
+
+        public ICommand SiteInCityCommand { get; set; }
+        public SiteNonCrudViewModel()
+        {
+            if (!IsInDesignMode)
+            {
+                SitesSizeCommand = new RelayCommand(async () =>
+                {
+                    var sitesNon = await downloader.Download<Driver>("SiteNon/SitesSize?size=" + nonCrudValue);
+                    Sites = sitesNon;
+                });
+                SiteInCityCommand = new RelayCommand(async () =>
+                {
+                    var sitesNon = await downloader.Download<Driver>("SiteNon/SiteInCity?city=" + nonCrudValue);
+                    Sites = sitesNon;
+                });
+            }
+        }
     }
 }

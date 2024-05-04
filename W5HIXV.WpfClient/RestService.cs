@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -414,13 +415,10 @@ namespace W5HIXV.WpfClient
     }
     public class DriverRestCollection<Driver> : RestCollection<Driver>
     {
-        public DriverRestCollection(string baseurl, string endpoint, string hub = null) : base(baseurl, endpoint, hub)
+        public DriverRestCollection(string value, string baseurl, string endpoint, string hub = null) : base(baseurl, endpoint, hub)
         {
+            this.items = rest.Get<Driver>("DriversOverValue?value=" + value);
         }
-       public void GetAllElementr(string value)
-       {
-            items = rest.Get<Driver>("DriversOverValue?value=" + value);
-       }
     }
 
 }

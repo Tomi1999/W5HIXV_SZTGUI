@@ -14,8 +14,7 @@ namespace W5HIXV.WpfClient
 {
     public class DriverNonCrudViewModell : ObservableRecipient
     {
-        public RestCollection<Driver> Drivers { get; set; }
-        public DriverRestCollection<Driver> DriversNon { get; set; }
+        public RestCollection<Driver> DriversNon { get; set; }
 
         private Driver selectedDriver;
 
@@ -64,9 +63,11 @@ namespace W5HIXV.WpfClient
             
             if (!IsInDesignMode)
             {
+               
+
                 ListDriversOver = new RelayCommand(() =>
                 {
-                    Drivers = new RestCollection<Driver>("http://localhost:55762/", "DriverNon/DriversOverValue?value=" + Distance);
+                    DriversNon = new DriverRestCollection<Driver>(distance, "http://localhost:55762/", "DriverNon/DriversOverValue?value=" );
                 });
             }
         }

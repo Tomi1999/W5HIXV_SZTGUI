@@ -6,7 +6,32 @@
         xmlns:local="clr-namespace:W5HIXV.WpfClient"
         mc:Ignorable="d"
         Title="CarNonCrudWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:CarNonCrudViewModell/>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Plate}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1" >
+            <Label Content="Plate" Background="Coral" Padding="10" Margin="10, 10, 10, 0"/>
+            <TextBlock Text="{Binding SelectedCar.Plate}" Padding="10" Margin="10, 0, 10, 0"/>
+            <Label Content="Brand" Background="Coral" Padding="10" Margin="10, 0, 10, 0"/>
+            <TextBlock Text="{Binding SelectedCar.Brand}" Padding="10" Margin="10, 0, 10, 0"/>
+            <Label Content="Total Weith" Background="Coral" Padding="10" Margin="10, 0, 10, 0"/>
+            <TextBlock Text="{Binding SelectedCar.Total_Weith}" Padding="10" Margin="10, 0, 10, 0"/>
+            <Label Content="Enter NonCrud Value" Background="Coral" Padding="10" Margin="10, 0, 10, 0"/>
+            <TextBox Text="{Binding NonCrudValue}" Padding="10" Margin="10, 0, 10, 0"/>
+            <Button Content="Get Brand" Command="{Binding CreateCarCommand}" Margin="10,0,10,0" Padding="10"/>
+            <Button Content="Get Cars Over Total Weith" Command="{Binding UpdateCarCommand}" Margin="10" Padding="10"/>
+        </StackPanel>
     </Grid>
 </Window>

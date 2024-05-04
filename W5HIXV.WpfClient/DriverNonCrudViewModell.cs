@@ -14,8 +14,18 @@ namespace W5HIXV.WpfClient
 {
     public class DriverNonCrudViewModell : ObservableRecipient
     {
-        JSonDownloader downloader = new JSonDownloader("http://localhost:55762/");
-        public RestCollection<Driver> DriversNon { get; set; }
+        private JSonDownloader downloader = new JSonDownloader("http://localhost:55762/");
+        private List<Driver> driversNon;
+
+        public List<Driver> DriversNon
+        {
+            get { return driversNon; }
+            set
+            {
+                driversNon = value;
+                OnPropertyChanged(nameof(DriversNon)); 
+            }
+        }
 
         private Driver selectedDriver;
 
@@ -66,9 +76,10 @@ namespace W5HIXV.WpfClient
             {
                
 
-                ListDriversOver = new RelayCommand(() =>
+                ListDriversOver = new RelayCommand(async () =>
                 {
-                    DriversNon = new DriverRestCollection<Driver>(distance, "http://localhost:55762/", "DriverNon/DriversOverValue?value=" );
+                    var drivers = await downloader.Download<Driver>("DriverNon/DriversOverValue?value="+Distance);
+                    DriversNon = drivers;
                 });
             }
         }

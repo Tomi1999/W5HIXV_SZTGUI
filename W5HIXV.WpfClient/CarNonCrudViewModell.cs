@@ -20,7 +20,7 @@ namespace W5HIXV.WpfClient
 {
     public class CarNonCrudViewModell : ObservableRecipient
     {
-        JSonDownloader downloader = new JSonDownloader("http://localhost:55762/");
+        private JSonDownloader downloader = new JSonDownloader("http://localhost:55762/");
 
 
         private string errorMessage;

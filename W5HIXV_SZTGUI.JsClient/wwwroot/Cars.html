@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Cars</title>
+    <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
+    <h1>Car Catalog</h1>
+    <div id="formdiv">
+        <label>Id</label>
+        <input type="text" id="id" />
+        <label>Plate</label>
+        <input type="text" id="plate" />
+        <label>Brand</label>
+        <input type="text" id="brand" />
+        <label>Total Weith</label>
+        <input type="text" id="total_Weith" />
+        <input type="button" value="Add Car" onclick="create()" />
+    </div>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Plate
+                </th>
+                <th>
+                    Brand
+                </th>
+                <th>
+                    Total_Weith
+                </th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+    <script src="Car.js"></script>
+</body>
+</html>

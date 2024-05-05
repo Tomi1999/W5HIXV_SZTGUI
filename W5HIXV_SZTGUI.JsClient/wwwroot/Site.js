@@ -11,11 +11,11 @@ function setupSignalR() {
         .configureLogging(signalR.LogLevel.Information)
         .build();
 
-    connection.on("CarCreated", (user, message) => {
+    connection.on("SiteCreated", (user, message) => {
         getdata();
     });
 
-    connection.on("CarDeleted", (user, message) => {
+    connection.on("SiteDeleted", (user, message) => {
         getdata();
     });
 
@@ -36,7 +36,7 @@ async function start() {
     }
 };
 async function getData() {
-    await fetch('http://localhost:55762/Car')
+    await fetch('http://localhost:55762/Site')
         .then(x => x.json())
         .then(y => {
             cars = y;
@@ -47,7 +47,7 @@ async function getData() {
 }
 
 function remove(id) {
-    fetch('http://localhost:55762/Car/' + id, {
+    fetch('http://localhost:55762/Site/' + id, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json', },
         body: null
@@ -63,16 +63,16 @@ function display() {
     document.getElementById("resultarea").innerHTML = "";
     cars.forEach(t => {
         document.getElementById("resultarea").innerHTML +=
-            "<tr><td>" + t.id + "</td><td>" + t.plate + "</td><td>" + t.brand + "</td><td>" + t.total_Weith + "</td></tr>"
+            "<tr><td>" + t.id + "</td><td>" + t.Size + "</td><td>" + t.address + "</td></tr>"
     })
 }
 function update() {
-    let plate = document.getElementById("platenew").value;
+    let size = document.getElementById("sizenew").value;
     let id = document.getElementById("id_update").value;
     let brandnew = document.getElementById("brandnew").value;
     let total_Weithnew = document.getElementById("total_Weithnew").value;
 
-    fetch('http://localhost:55762/Car/' + id, {
+    fetch('http://localhost:55762/Site/' + id, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json', },
         body: null
@@ -84,11 +84,11 @@ function update() {
         })
         .catch((error) => { console.error('Error:', error); });
     getData();
-    fetch('http://localhost:55762/Car', {
+    fetch('http://localhost:55762/Site', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
-            { id: id, plate: plate, brand: brandnew, total_Weith: total_Weithnew })
+            { size: size, brand: brandnew, total_Weith: total_Weithnew, id:id })
     })
         .then(response => response)
         .then(data => {
@@ -96,14 +96,12 @@ function update() {
             getdata();
         })
         .catch((error) => { console.error('Error:', error); });
-    getData();
-    display();
 }
 function create() {
-    let plate = document.getElementById("plate").value; 
-    let brand = document.getElementById("brand").value; 
-    let total_Weith = document.getElementById("total_Weith").value; 
-    fetch('http://localhost:55762/Car', {
+    let plate = document.getElementById("plate").value;
+    let brand = document.getElementById("brand").value;
+    let total_Weith = document.getElementById("total_Weith").value;
+    fetch('http://localhost:55762/Site', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(

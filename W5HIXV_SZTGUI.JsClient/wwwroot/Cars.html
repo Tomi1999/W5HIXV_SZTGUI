@@ -8,8 +8,6 @@
 <body>
     <h1>Car Catalog</h1>
     <div id="formdiv">
-        <label>Id</label>
-        <input type="text" id="id" />
         <label>Plate</label>
         <input type="text" id="plate" />
         <label>Brand</label>
@@ -40,7 +38,11 @@
         <tbody id="resultarea">
         </tbody>
     </table>
-
+    <div id="formdiv">
+        <label>Enter Id to remove</label>
+        <input type="text" id="removal" />
+        <button type="button" onclick="remove(removal.value)">Delete</button>
+    </div>
     <script src="Car.js"></script>
 </body>
 </html>

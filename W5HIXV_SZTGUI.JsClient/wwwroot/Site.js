@@ -1,8 +1,9 @@
-﻿let cars = [];
+﻿let sites = [];
 let connection = null;
+let sitesnoncrud = [];
 getData();
 setupSignalR();
-carIdToUpdate = -1;
+siteIdToUpdate = -1;
 
 
 function setupSignalR() {
@@ -39,7 +40,7 @@ async function getData() {
     await fetch('http://localhost:55762/Site')
         .then(x => x.json())
         .then(y => {
-            cars = y;
+            sites = y;
             console.log(y);
             display();
         });
@@ -61,7 +62,7 @@ function remove(id) {
 }
 function display() {
     document.getElementById("resultarea").innerHTML = "";
-    cars.forEach(t => {
+    sites.forEach(t => {
         document.getElementById("resultarea").innerHTML +=
             "<tr><td>" + t.id + "</td><td>" + t.size + "</td><td>" + t.address + "</td></tr>"
     })

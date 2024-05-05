@@ -31,9 +31,9 @@ namespace W5HIXV.WpfClient
                 return (bool)DependencyPropertyDescriptor.FromProperty(prop, typeof(FrameworkElement)).Metadata.DefaultValue;
             }
         }
-        private List<Driver> sites;
+        private List<Site> sites;
 
-        public List<Driver> Sites
+        public List<Site> Sites
         {
             get { return sites; }
             set
@@ -60,15 +60,7 @@ namespace W5HIXV.WpfClient
             {
                 if (value != null)
                 {
-                    selectedSite = new Site()
-                    {
-                        Id = value.Id,
-                        Address = value.Address,
-                        Size = value.Size,
-                        City = value.City,
-                        Drivers = value.Drivers,
-                        Cars = value.Cars
-                    };
+                    selectedSite = value;
                     OnPropertyChanged();
                    
                 }
@@ -83,12 +75,12 @@ namespace W5HIXV.WpfClient
             {
                 SitesSizeCommand = new RelayCommand(async () =>
                 {
-                    var sitesNon = await downloader.Download<Driver>("SiteNon/SitesSize?size=" + nonCrudValue);
+                    var sitesNon = await downloader.Download<Site>("SiteNon/SiteInCity?city=" + nonCrudValue);
                     Sites = sitesNon;
                 });
                 SiteInCityCommand = new RelayCommand(async () =>
                 {
-                    var sitesNon = await downloader.Download<Driver>("SiteNon/SiteInCity?city=" + nonCrudValue);
+                    var sitesNon = await downloader.Download<Site>("SiteNon/SitesSize?size=" + nonCrudValue);
                     Sites = sitesNon;
                 });
             }

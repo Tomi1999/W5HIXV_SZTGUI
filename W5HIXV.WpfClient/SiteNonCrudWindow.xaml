@@ -29,7 +29,7 @@
             <Label Content="City" Background="Coral" Padding="10" Margin="10, 0, 10, 0"/>
             <TextBlock Text="{Binding SelectedSite.City}" Padding="10" Margin="10, 0, 10, 0"/>
             <Label Content="Enter Non Crud Value" Background="Coral" Padding="10" Margin="10, 0, 10, 0"/>
-            <TextBox Text="{Binding MyProperty}" Padding="10" Margin="10, 0, 10, 10"/>
+            <TextBox Text="{Binding NonCrudValue}" Padding="10" Margin="10, 0, 10, 10"/>
 
             <Button Content="Sites In The City" Command="{Binding SitesSizeCommand}" Margin="10" Padding="10"/>
             <Button Content="Sort By Size" Command="{Binding SiteInCityCommand}" Margin="10" Padding="10"/>

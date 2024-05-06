@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Drivers</title>
+    <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
+    <h1>Driver Catalog</h1>
+    <div id="formdiv">
+        <label>Name</label>
+        <input type="text" id="name" />
+        <label>Distance</label>
+        <input type="text" id="distance" />
+        <input type="button" value="Add Driver" onclick="create()" />
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Distance
+                </th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+    <div id="deleteformdiv">
+        <label>Enter Id to remove</label>
+        <input type="text" id="removal" />
+        <button type="button" onclick="remove(removal.value)">Delete</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="Driver.js"></script>
+    <div id="updateformdiv">
+        <h3>Update Driver</h3>
+        <label>Id</label>
+        <input type="text" id="id_update" />
+        <label>Name</label>
+        <input type="text" id="name_update" />
+        <label>Distance</label>
+        <input type="text" id="distance_update" />
+        <input type="button" value="Update Driver" onclick="update()" />
+    </div>
+</body>
+</html>

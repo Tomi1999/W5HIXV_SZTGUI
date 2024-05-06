@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Drivers Over Value</title>
+    <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
+    <h1>Drivers Over Value</h1>
+    <div id="formdiv">
+        <label>Enter Value:</label>
+        <input type="text" id="inputValue" />
+        <button type="button" onclick="getData()">Get Drivers</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Distance
+                </th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="DriverNonCrud.js"></script>
+</body>
+</html>

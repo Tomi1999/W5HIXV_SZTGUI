@@ -1,8 +1,8 @@
 ﻿let sites = [];
 
 async function getSitesInCity() {
-    const inputValueCity = document.getElementById("inputValueCity").value;
-    const url = `http://localhost:55762/SiteNon/SiteInCity?city=${inputValueCity}`;
+    const inputValue = document.getElementById("inputValue").value;
+    const url = `http://localhost:55762/SiteNon/SiteInCity?city=${inputValue}`;
 
     try {
         const response = await fetch(url);
@@ -15,8 +15,9 @@ async function getSitesInCity() {
 }
 
 async function getSitesBySize() {
-    const inputValueSize = document.getElementById("inputValueSize").value;
-    const url = `http://localhost:55762/SiteNon/SitesSize?size=${inputValueSize}`;
+
+    const inputValue = document.getElementById("inputValue").value;
+    const url = `http://localhost:55762/SiteNon/SitesSize?size=${inputValue}`;
 
     try {
         const response = await fetch(url);

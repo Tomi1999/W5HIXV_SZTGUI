@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Cars Non Crud</title>
+    <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
+    <h1>Cars Non Crud</h1>
+    <div id="formdiv">
+        <label>Enter Value:</label>
+        <input type="text" id="inputValue" />
+        <button type="button" onclick="getCarsByBrand()">Get Cars By Brand</button>
+        <button type="button" onclick="getCarsOverTW()">Get Cars Over Total Weight</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Plate
+                </th>
+                <th>
+                    Brand
+                </th>
+                <th>
+                    Total Weight
+                </th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="CarNonCrud.js"></script>
+</body>
+</html>
